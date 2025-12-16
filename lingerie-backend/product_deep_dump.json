@@ -1,0 +1,2881 @@
+{
+  "id": "2823474",
+  "loja": "3016",
+  "nome": "Sutiã Amamentação (Acalanto)",
+  "descricao": "Confeccionado em poliamida, com abertura no peitilho. fecho triplo.",
+  "status": "1",
+  "destaque": "1",
+  "controlar_estoque": "1",
+  "total_estoque": 51,
+  "total_disponibilidade": 4,
+  "imagens": [
+    "produtos/1740594798_575140fbc6febb3aae20.jpeg.webp",
+    "produtos/1740594795_d901553e798aba80e759.jpeg.webp"
+  ],
+  "imagens_variacoes": [],
+  "imagens_variacoes_configs": {
+    "125082": {
+      "ocultar_da_galeria": "0"
+    },
+    "125083": {
+      "ocultar_da_galeria": "0"
+    },
+    "125084": {
+      "ocultar_da_galeria": "0"
+    },
+    "125085": {
+      "ocultar_da_galeria": "0"
+    }
+  },
+  "posicao_imagem_variacao": false,
+  "video": null,
+  "video_externo": null,
+  "venda_externa": false,
+  "link_externo": null,
+  "qtds_minimas": [],
+  "qtds_maximas": [],
+  "multiplicador": {
+    "padrao": [
+      ""
+    ]
+  },
+  "regras_desconto": [],
+  "preco": "28.00",
+  "precos_produto": {
+    "preco_a_partir": {
+      "preco": "28.00"
+    },
+    "tem_desconto": false,
+    "padrao": "28.00",
+    "promocional": false,
+    "variacoes": [],
+    "precos_variacoes": false,
+    "regras_precos": null
+  },
+  "grade": null,
+  "grade_quebrada": false,
+  "preco_grade": 0,
+  "preco_grade_original": 0,
+  "preco_grade_desconto": 0,
+  "qtd_grade": 0,
+  "simulacao_parcelas": {
+    "exibir_simulador": true,
+    "melhor_desconto": [],
+    "melhor_parcelamento": {
+      "id": "cartao_credito",
+      "parcela": 10,
+      "valor_parcela": 3.37,
+      "tipo_juros": "com_juros"
+    },
+    "formas_pagamento": {
+      "pix": {
+        "preco": 28,
+        "preco_final": 28,
+        "tipo_reajuste": "desconto",
+        "desconto": 0,
+        "desconto_porcentagem": "0",
+        "info": {
+          "nome": "PIX",
+          "icone": "pix-logo.png"
+        }
+      },
+      "pagseguro": {
+        "cartao_credito": {
+          "id": "cartao_credito",
+          "preco": 28,
+          "preco_final": 28,
+          "tipo_reajuste": "acrescimo",
+          "acrescimo": 0,
+          "parcelas": [
+            {
+              "parcela": 1,
+              "valor_parcela": 29.32,
+              "total": 29.32
+            },
+            {
+              "parcela": 2,
+              "valor_parcela": 15.12,
+              "total": 30.24
+            },
+            {
+              "parcela": 3,
+              "valor_parcela": 10.17,
+              "total": 30.5
+            },
+            {
+              "parcela": 4,
+              "valor_parcela": 7.73,
+              "total": 30.91
+            },
+            {
+              "parcela": 5,
+              "valor_parcela": 6.29,
+              "total": 31.43
+            },
+            {
+              "parcela": 6,
+              "valor_parcela": 5.27,
+              "total": 31.64
+            },
+            {
+              "parcela": 7,
+              "valor_parcela": 4.65,
+              "total": 32.52
+            },
+            {
+              "parcela": 8,
+              "valor_parcela": 4.11,
+              "total": 32.9
+            },
+            {
+              "parcela": 9,
+              "valor_parcela": 3.69,
+              "total": 33.25
+            },
+            {
+              "parcela": 10,
+              "valor_parcela": 3.37,
+              "total": 33.65
+            }
+          ]
+        },
+        "info": {
+          "nome": "PagSeguro",
+          "icone": "pagseguro-logo.png"
+        }
+      }
+    },
+    "metodos_aceitos": [
+      "pix",
+      "cartao_credito",
+      "outros"
+    ]
+  },
+  "campanha_promocional": "0",
+  "total_vendas": 77,
+  "total_curtidas": 2,
+  "total_perguntas": 0,
+  "curtido": false,
+  "comprado_recentemente": false,
+  "texto_botao_acao": "",
+  "variacoes": {
+    "125080": {
+      "id": "125080",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho Único",
+      "cor": null,
+      "ordem": "1",
+      "status": "1",
+      "total_produtos": "0"
+    },
+    "125081": {
+      "id": "125081",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho PP",
+      "cor": null,
+      "ordem": "1",
+      "status": "1",
+      "total_produtos": "0"
+    },
+    "125082": {
+      "id": "125082",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho P",
+      "cor": null,
+      "ordem": "1",
+      "status": "1",
+      "total_produtos": "408"
+    },
+    "125083": {
+      "id": "125083",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho M",
+      "cor": null,
+      "ordem": "1",
+      "status": "1",
+      "total_produtos": "337"
+    },
+    "125084": {
+      "id": "125084",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho G",
+      "cor": null,
+      "ordem": "1",
+      "status": "1",
+      "total_produtos": "297"
+    },
+    "125085": {
+      "id": "125085",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho GG",
+      "cor": null,
+      "ordem": "1",
+      "status": "1",
+      "total_produtos": "365"
+    },
+    "125147": {
+      "id": "125147",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho EG (48)",
+      "cor": "",
+      "ordem": "2",
+      "status": "1",
+      "total_produtos": "225"
+    },
+    "125148": {
+      "id": "125148",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho EXG (50)",
+      "cor": "",
+      "ordem": "3",
+      "status": "1",
+      "total_produtos": "92"
+    },
+    "135523": {
+      "id": "135523",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho EXGG (52)",
+      "cor": "",
+      "ordem": "4",
+      "status": "1",
+      "total_produtos": "27"
+    },
+    "135528": {
+      "id": "135528",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho EXXGG (54)",
+      "cor": "",
+      "ordem": "5",
+      "status": "1",
+      "total_produtos": "25"
+    },
+    "1247530": {
+      "id": "1247530",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho Infantil - P/M",
+      "cor": "",
+      "ordem": "6",
+      "status": "1",
+      "total_produtos": "0"
+    },
+    "1247531": {
+      "id": "1247531",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Tamanho infantil - G/GG",
+      "cor": "",
+      "ordem": "7",
+      "status": "1",
+      "total_produtos": "0"
+    },
+    "1448436": {
+      "id": "1448436",
+      "grupo": "11191",
+      "subgrupo": null,
+      "subgrupo_cor": null,
+      "nome": "Cinza",
+      "cor": "#d9d6d6",
+      "ordem": "48",
+      "status": "1",
+      "total_produtos": "0"
+    },
+    "1591832": {
+      "id": "1591832",
+      "grupo": "11191",
+      "subgrupo": "",
+      "subgrupo_cor": "",
+      "nome": "Tamanho Único - Branco com Romance",
+      "cor": "#f7efef",
+      "ordem": "49",
+      "status": "1",
+      "total_produtos": "0"
+    },
+    "1596244": {
+      "id": "1596244",
+      "grupo": "11191",
+      "subgrupo": "",
+      "subgrupo_cor": "",
+      "nome": "Tamanho Único - Rosa Neon",
+      "cor": "#d87dab",
+      "ordem": "50",
+      "status": "1",
+      "total_produtos": "0"
+    },
+    "1630989": {
+      "id": "1630989",
+      "grupo": "11191",
+      "subgrupo": "",
+      "subgrupo_cor": "",
+      "nome": "Tamanho Único - Marinho com Branco",
+      "cor": "#2208a1",
+      "ordem": "51",
+      "status": "1",
+      "total_produtos": "0"
+    }
+  },
+  "subgrupos_variacoes": [],
+  "subgrupos_variacoes_cores": [],
+  "disponibilidade": {
+    "125082": "1",
+    "125083": "1",
+    "125084": "1",
+    "125085": "1"
+  },
+  "estoque": {
+    "125082": 14,
+    "125083": 15,
+    "125084": 11,
+    "125085": 11,
+    "0": 0
+  },
+  "catalogos": {
+    "1": "280"
+  },
+  "catalogo_padrao": "1",
+  "categorias": {
+    "22615": [],
+    "22616": [],
+    "116421": []
+  },
+  "categoria": 22615,
+  "categoria_nome": "Lingerie",
+  "sku": "FZ2823474",
+  "cod_barras": null,
+  "cod_barras_variacoes": [],
+  "sku_variacoes": {
+    "125082": "FZ2823474.1",
+    "125083": "FZ2823474.2",
+    "125084": "FZ2823474.3",
+    "125085": "FZ2823474.4"
+  },
+  "comprimento": "7",
+  "largura": "7",
+  "altura": "2",
+  "peso": "80",
+  "guia_medidas": "<div style=\"text-align: left;\"><span style=\"font-size: 0.875em;\"><font face=\"montserrat, sans-serif\">Exemplo de Guia de Medidas, <b>você pode alterar a vontade!</b></font></span></div><div style=\"text-align: left;\"><span style=\"font-size: 0.875em;\"><font face=\"montserrat, sans-serif\"><b><br></b></font></span></div><table class=\"table table-bordered\"><tbody><tr><td><font color=\"#e79c9c\"><br></font></td><td><font color=\"#e79c9c\"><span style=\"font-family: montserrat, sans-serif; font-weight: 700; text-align: center;\">Tamanho</span><br></font></td><td><font color=\"#e79c9c\"><span style=\"font-family: montserrat, sans-serif; font-weight: 700; text-align: center;\">Busto</span><br></font></td><td><font color=\"#e79c9c\"><span style=\"font-family: montserrat, sans-serif; font-weight: 700; text-align: center;\">Cintura</span><br></font></td><td><span style=\"font-family: montserrat, sans-serif; font-weight: 700; text-align: center;\"><font color=\"#e79c9c\">Quadril</font></span><br></td></tr><tr><td><b><font color=\"#e79c9c\">P</font></b></td><td>40</td><td>80 - 86</td><td>66 - 72</td><td>87 - 93</td></tr><tr><td><b><font color=\"#e79c9c\">M</font></b></td><td>42</td><td>87 - 94</td><td>73 - 78</td><td>94 - 101</td></tr><tr><td><b><font color=\"#e79c9c\">G</font></b></td><td>44</td><td>95 - 103</td><td>79 - 86</td><td>102 - 109</td></tr><tr><td><b><font color=\"#e79c9c\">GG</font></b></td><td>46</td><td>104 - 108</td><td>87 - 94</td><td>110 - 114</td></tr><tr><td><b><font color=\"#e79c9c\">48</font></b></td><td>48</td><td>109 - 115</td><td>100 - 106</td><td>115 - 120</td></tr><tr><td><b><font color=\"#e79c9c\">50</font></b></td><td>50</td><td>116 - 121</td><td>107 - 112</td><td>121 - 126</td></tr><tr><td><b><font color=\"#e79c9c\">52</font></b></td><td>52</td><td>122 - 126</td><td>113 - 118</td><td>127 - 132</td></tr></tbody></table><div style=\"text-align: left;\"></div>",
+  "keywords": "",
+  "produtos_relacionados": [
+    {
+      "id": "3506646",
+      "loja": "3016",
+      "nome": "Conjunto Renata (Preto)",
+      "descricao": "Conjunto confeccionado em renda, fecho duplo.",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 108,
+      "total_disponibilidade": 4,
+      "imagens": [
+        "produtos/6900c512908ba_6H2YLX83.webp",
+        "produtos/6900c5148781f_1nZkBPs2.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 32.9,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 32.9
+        },
+        "tem_desconto": false,
+        "padrao": 32.9,
+        "promocional": false,
+        "variacoes": [],
+        "precos_variacoes": false,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 131,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1"
+      },
+      "estoque": {
+        "0": 0,
+        "125082": 10,
+        "125083": 35,
+        "125084": 29,
+        "125085": 34
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22615": [],
+        "22617": []
+      },
+      "categoria": 22615,
+      "categoria_nome": "Lingerie",
+      "sku": "FZ3506646",
+      "cod_barras": "",
+      "cod_barras_variacoes": {
+        "125082": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125083": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125084": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125085": {
+          "tipo": "ean13",
+          "numero": ""
+        }
+      },
+      "sku_variacoes": {
+        "125082": "FZ3506646.1",
+        "125083": "FZ3506646.2",
+        "125084": "FZ3506646.3",
+        "125085": "FZ3506646.4"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    },
+    {
+      "id": "3221596",
+      "loja": "3016",
+      "nome": "Conjunto Rafaela (Romance)",
+      "descricao": "Conjunto confeccionado em microfibra com detalhes em renda, fecho triplo.",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 156,
+      "total_disponibilidade": 6,
+      "imagens": [
+        "produtos/1753808762_08524c7325b87b631644.jpeg.webp",
+        "produtos/1753808759_841b4277d8469ba77a40.jpeg.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        },
+        "125147": {
+          "ocultar_da_galeria": "0"
+        },
+        "125148": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 42,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 42,
+          "ativado": true
+        },
+        "tem_desconto": false,
+        "padrao": 42,
+        "promocional": false,
+        "variacoes": {
+          "125147": {
+            "padrao": "45.9",
+            "promocional": false
+          },
+          "125148": {
+            "padrao": "45.9",
+            "promocional": false
+          }
+        },
+        "precos_variacoes": true,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 43,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1",
+        "125147": "1",
+        "125148": "1"
+      },
+      "estoque": {
+        "125082": 16,
+        "125083": 37,
+        "125084": 33,
+        "125085": 37,
+        "0": 0,
+        "125147": 16,
+        "125148": 17
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22615": [],
+        "22617": []
+      },
+      "categoria": 22615,
+      "categoria_nome": "Lingerie",
+      "sku": "FZ3221596",
+      "cod_barras": "",
+      "cod_barras_variacoes": {
+        "125082": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125083": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125084": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125085": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125147": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125148": {
+          "tipo": "ean13",
+          "numero": ""
+        }
+      },
+      "sku_variacoes": {
+        "125082": "FZ3221596.1",
+        "125083": "FZ3221596.2",
+        "125084": "FZ3221596.3",
+        "125085": "FZ3221596.4",
+        "125147": "FZ3221596.5",
+        "125148": "FZ3221596.6"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    },
+    {
+      "id": "2984485",
+      "loja": "3016",
+      "nome": "Conjunto Sem Bojo Aurora (Branco)",
+      "descricao": "Conjunto de tule Bordado sem bojo, com aro, com detalhes em coração. Calcinha fio regulável, acompanha choker e cinta liga.",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 37,
+      "total_disponibilidade": 4,
+      "imagens": [
+        "produtos/1745945521_2413b69ef4328582bb76.jpeg.webp",
+        "produtos/1745945526_c46d320428160a0469d5.jpeg.webp",
+        "produtos/1745945100_87c47a495e507202d7f6.jpeg.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 49.9,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 49.9
+        },
+        "tem_desconto": false,
+        "padrao": 49.9,
+        "promocional": false,
+        "variacoes": [],
+        "precos_variacoes": false,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 91,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1"
+      },
+      "estoque": {
+        "0": 0,
+        "125082": 0,
+        "125083": 2,
+        "125084": 14,
+        "125085": 21
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22615": [],
+        "22617": []
+      },
+      "categoria": 22615,
+      "categoria_nome": "Lingerie",
+      "sku": "FZ2984485",
+      "cod_barras": null,
+      "cod_barras_variacoes": [],
+      "sku_variacoes": {
+        "125082": "FZ2984485.1",
+        "125083": "FZ2984485.2",
+        "125084": "FZ2984485.3",
+        "125085": "FZ2984485.4"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    },
+    {
+      "id": "3316159",
+      "loja": "3016",
+      "nome": "Pijama Sara (preto)",
+      "descricao": "Baby Doll confeccionado em Poliamida estampa digital",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 1,
+      "total_disponibilidade": 5,
+      "imagens": [
+        "produtos/68adf4658bfaf_8VvJyNlq.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        },
+        "125147": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 38,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 38,
+          "ativado": true
+        },
+        "tem_desconto": false,
+        "padrao": 38,
+        "promocional": false,
+        "variacoes": {
+          "125082": {
+            "padrao": "38",
+            "promocional": false
+          },
+          "125083": {
+            "padrao": "38",
+            "promocional": false
+          },
+          "125084": {
+            "padrao": "38",
+            "promocional": false
+          },
+          "125085": {
+            "padrao": "38",
+            "promocional": false
+          },
+          "125147": {
+            "padrao": "42",
+            "promocional": false
+          }
+        },
+        "precos_variacoes": true,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 11,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1",
+        "125147": "1"
+      },
+      "estoque": {
+        "125082": 1,
+        "125083": 0,
+        "125084": 0,
+        "125085": 0,
+        "125147": 0,
+        "0": 0
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22615": [],
+        "22618": []
+      },
+      "categoria": 22615,
+      "categoria_nome": "Lingerie",
+      "sku": "FZ3316159",
+      "cod_barras": null,
+      "cod_barras_variacoes": [],
+      "sku_variacoes": {
+        "125082": "FZ3316159.1",
+        "125083": "FZ3316159.2",
+        "125084": "FZ3316159.3",
+        "125085": "FZ3316159.4",
+        "125147": "FZ3316159.5"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    },
+    {
+      "id": "3506618",
+      "loja": "3016",
+      "nome": "Conjunto Renata (Vermelho)",
+      "descricao": "Conjunto confeccionado em renda, fecho duplo.",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 127,
+      "total_disponibilidade": 4,
+      "imagens": [
+        "produtos/6900c49ab6839_fz2jL3xq.webp",
+        "produtos/6900c49c78a32_bkZQt1hz.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 32.9,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 32.9
+        },
+        "tem_desconto": false,
+        "padrao": 32.9,
+        "promocional": false,
+        "variacoes": [],
+        "precos_variacoes": false,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 97,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1"
+      },
+      "estoque": {
+        "0": 0,
+        "125082": 13,
+        "125083": 40,
+        "125084": 36,
+        "125085": 38
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22615": [],
+        "22617": []
+      },
+      "categoria": 22615,
+      "categoria_nome": "Lingerie",
+      "sku": "FZ3506618",
+      "cod_barras": "",
+      "cod_barras_variacoes": {
+        "125082": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125083": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125084": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125085": {
+          "tipo": "ean13",
+          "numero": ""
+        }
+      },
+      "sku_variacoes": {
+        "125082": "FZ3506618.1",
+        "125083": "FZ3506618.2",
+        "125084": "FZ3506618.3",
+        "125085": "FZ3506618.4"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    },
+    {
+      "id": "3534217",
+      "loja": "3016",
+      "nome": "#Conjunto Clássico (Castanho)",
+      "descricao": "Conjunto confeccionado em poliamida, base de espuma calcinha semi-fio.",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 11,
+      "total_disponibilidade": 5,
+      "imagens": [
+        "produtos/690b4e064f9c2_gVmTMkKe.webp",
+        "produtos/690b4e0832a6c_MnclI5pz.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        },
+        "125147": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 39.9,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 39.9,
+          "ativado": true
+        },
+        "tem_desconto": false,
+        "padrao": 39.9,
+        "promocional": false,
+        "variacoes": {
+          "125147": {
+            "padrao": "42",
+            "promocional": false
+          }
+        },
+        "precos_variacoes": true,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 71,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1",
+        "125147": "1"
+      },
+      "estoque": {
+        "0": 0,
+        "125082": 7,
+        "125083": 0,
+        "125084": 0,
+        "125085": 0,
+        "125147": 4
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22615": [],
+        "22617": []
+      },
+      "categoria": 22615,
+      "categoria_nome": "Lingerie",
+      "sku": "FZ3534217",
+      "cod_barras": "",
+      "cod_barras_variacoes": {
+        "125082": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125083": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125084": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125085": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125147": {
+          "tipo": "ean13",
+          "numero": ""
+        }
+      },
+      "sku_variacoes": {
+        "125082": "FZ3534217.1",
+        "125083": "FZ3534217.2",
+        "125084": "FZ3534217.3",
+        "125085": "FZ3534217.4",
+        "125147": "FZ3534217.5"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    },
+    {
+      "id": "3572519",
+      "loja": "3016",
+      "nome": "Confort TOP (Pink)",
+      "descricao": "Conjunto TOP, confeccionado em microfibra, bojo removível, fecho triplo, alça reforçada.<br>Calcinha fio duplo.",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 10,
+      "total_disponibilidade": 4,
+      "imagens": [
+        "produtos/691ca66e9651e_7MGevnI5.webp",
+        "produtos/691ca66ff0640_r7obEXBg.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 42,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 42
+        },
+        "tem_desconto": false,
+        "padrao": 42,
+        "promocional": false,
+        "variacoes": [],
+        "precos_variacoes": false,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 4,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1"
+      },
+      "estoque": {
+        "0": 0,
+        "125082": 0,
+        "125083": 6,
+        "125084": 4,
+        "125085": 0
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22615": [],
+        "22617": []
+      },
+      "categoria": 22615,
+      "categoria_nome": "Lingerie",
+      "sku": "FZ3572519",
+      "cod_barras": null,
+      "cod_barras_variacoes": [],
+      "sku_variacoes": {
+        "125082": "FZ3572519.1",
+        "125083": "FZ3572519.2",
+        "125084": "FZ3572519.3",
+        "125085": "FZ3572519.4"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    },
+    {
+      "id": "3634579",
+      "loja": "3016",
+      "nome": "Conjunto Amora (Preto)",
+      "descricao": "Conjunto confeccionado em renda, calcinha fio duplo, regulável, com renda e  pingente frontal.",
+      "status": true,
+      "destaque": 1,
+      "controlar_estoque": true,
+      "total_estoque": 90,
+      "total_disponibilidade": 4,
+      "imagens": [
+        "produtos/1765291805_bff6a543b13425e7f92c.webp",
+        "produtos/1765291779_4fb50caa9e0d48204054.webp"
+      ],
+      "imagens_variacoes": [],
+      "imagens_variacoes_configs": {
+        "125082": {
+          "ocultar_da_galeria": "0"
+        },
+        "125083": {
+          "ocultar_da_galeria": "0"
+        },
+        "125084": {
+          "ocultar_da_galeria": "0"
+        },
+        "125085": {
+          "ocultar_da_galeria": "0"
+        }
+      },
+      "posicao_imagem_variacao": false,
+      "video": null,
+      "video_externo": null,
+      "venda_externa": false,
+      "link_externo": null,
+      "qtds_minimas": [],
+      "qtds_maximas": [],
+      "multiplicador": {
+        "padrao": [
+          ""
+        ]
+      },
+      "regras_desconto": [],
+      "preco": 42,
+      "precos_produto": {
+        "preco_a_partir": {
+          "preco": 42
+        },
+        "tem_desconto": false,
+        "padrao": 42,
+        "promocional": false,
+        "variacoes": [],
+        "precos_variacoes": false,
+        "regras_precos": null
+      },
+      "grade": null,
+      "grade_quebrada": false,
+      "preco_grade": 0,
+      "preco_grade_original": 0,
+      "preco_grade_desconto": 0,
+      "qtd_grade": 0,
+      "simulacao_parcelas": null,
+      "campanha_promocional": "0",
+      "total_vendas": 0,
+      "total_curtidas": 0,
+      "total_perguntas": 0,
+      "curtido": false,
+      "comprado_recentemente": false,
+      "texto_botao_acao": "",
+      "variacoes": {
+        "125080": {
+          "id": "125080",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Único",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125081": {
+          "id": "125081",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho PP",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "125082": {
+          "id": "125082",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho P",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "408"
+        },
+        "125083": {
+          "id": "125083",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho M",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "337"
+        },
+        "125084": {
+          "id": "125084",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho G",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "297"
+        },
+        "125085": {
+          "id": "125085",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho GG",
+          "cor": null,
+          "ordem": "1",
+          "status": "1",
+          "total_produtos": "365"
+        },
+        "125147": {
+          "id": "125147",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EG (48)",
+          "cor": "",
+          "ordem": "2",
+          "status": "1",
+          "total_produtos": "225"
+        },
+        "125148": {
+          "id": "125148",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXG (50)",
+          "cor": "",
+          "ordem": "3",
+          "status": "1",
+          "total_produtos": "92"
+        },
+        "135523": {
+          "id": "135523",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXGG (52)",
+          "cor": "",
+          "ordem": "4",
+          "status": "1",
+          "total_produtos": "27"
+        },
+        "135528": {
+          "id": "135528",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho EXXGG (54)",
+          "cor": "",
+          "ordem": "5",
+          "status": "1",
+          "total_produtos": "25"
+        },
+        "1247530": {
+          "id": "1247530",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho Infantil - P/M",
+          "cor": "",
+          "ordem": "6",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1247531": {
+          "id": "1247531",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Tamanho infantil - G/GG",
+          "cor": "",
+          "ordem": "7",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1448436": {
+          "id": "1448436",
+          "grupo": "11191",
+          "subgrupo": null,
+          "subgrupo_cor": null,
+          "nome": "Cinza",
+          "cor": "#d9d6d6",
+          "ordem": "48",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1591832": {
+          "id": "1591832",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Branco com Romance",
+          "cor": "#f7efef",
+          "ordem": "49",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1596244": {
+          "id": "1596244",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Rosa Neon",
+          "cor": "#d87dab",
+          "ordem": "50",
+          "status": "1",
+          "total_produtos": "0"
+        },
+        "1630989": {
+          "id": "1630989",
+          "grupo": "11191",
+          "subgrupo": "",
+          "subgrupo_cor": "",
+          "nome": "Tamanho Único - Marinho com Branco",
+          "cor": "#2208a1",
+          "ordem": "51",
+          "status": "1",
+          "total_produtos": "0"
+        }
+      },
+      "subgrupos_variacoes": [],
+      "subgrupos_variacoes_cores": [],
+      "disponibilidade": {
+        "125082": "1",
+        "125083": "1",
+        "125084": "1",
+        "125085": "1"
+      },
+      "estoque": {
+        "0": 0,
+        "125082": 10,
+        "125083": 32,
+        "125084": 30,
+        "125085": 18
+      },
+      "catalogos": {
+        "1": "280"
+      },
+      "catalogo_padrao": true,
+      "categorias": {
+        "22617": [],
+        "22615": []
+      },
+      "categoria": 22617,
+      "categoria_nome": "Conjuntos",
+      "sku": "FZ3634579",
+      "cod_barras": "",
+      "cod_barras_variacoes": {
+        "125082": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125083": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125084": {
+          "tipo": "ean13",
+          "numero": ""
+        },
+        "125085": {
+          "tipo": "ean13",
+          "numero": ""
+        }
+      },
+      "sku_variacoes": {
+        "125082": "FZ3634579.1",
+        "125083": "FZ3634579.2",
+        "125084": "FZ3634579.3",
+        "125085": "FZ3634579.4"
+      },
+      "comprimento": "15",
+      "largura": "10",
+      "altura": "1",
+      "peso": "300",
+      "guia_medidas": null,
+      "keywords": "",
+      "produtos_relacionados": "null",
+      "audio_descricao": null,
+      "total_plays_audio": 0,
+      "regras_precos": [],
+      "tipo_regra_preco": "variacao"
+    }
+  ],
+  "audio_descricao": null,
+  "total_plays_audio": 0,
+  "regras_precos": [],
+  "tipo_regra_preco": "variacao"
+}
