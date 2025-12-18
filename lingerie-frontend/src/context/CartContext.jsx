@@ -14,7 +14,20 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     try {
       const savedCart = localStorage.getItem('lingerie-cart')
-      return savedCart ? JSON.parse(savedCart) : []
+      if (!savedCart) return []
+
+      const items = JSON.parse(savedCart)
+
+      // Normalize all items from localStorage
+      return items.map(item => ({
+        ...item,
+        produto: {
+          ...item.produto,
+          imagens: Array.isArray(item.produto.imagens)
+            ? item.produto.imagens.join(',')
+            : (item.produto.imagens || '')
+        }
+      }))
     } catch (error) {
       console.error('Erro ao carregar carrinho do localStorage:', error)
       return []
