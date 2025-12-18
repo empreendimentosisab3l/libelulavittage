@@ -41,8 +41,16 @@ export const CartProvider = ({ children }) => {
         return newItems
       }
 
+      // Normalize product data - ensure imagens is always a string
+      const normalizedProduto = {
+        ...produto,
+        imagens: Array.isArray(produto.imagens)
+          ? produto.imagens.join(',')
+          : (produto.imagens || '')
+      }
+
       return [...prevItems, {
-        produto,
+        produto: normalizedProduto,
         variacaoId,
         tamanho,
         quantidade: 1
