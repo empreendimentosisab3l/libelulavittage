@@ -109,7 +109,16 @@ const Cart = ({ isOpen, onClose }) => {
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
   const subtotal = item.produto.preco_venda * item.quantidade
-  const imagemUrl = item.produto.imagens?.split(',')[0] || '/placeholder-product.jpg'
+
+  // Handle both array and string formats for images
+  let imagemUrl = '/placeholder-product.jpg'
+  if (item.produto.imagens) {
+    if (Array.isArray(item.produto.imagens)) {
+      imagemUrl = item.produto.imagens[0] || '/placeholder-product.jpg'
+    } else if (typeof item.produto.imagens === 'string') {
+      imagemUrl = item.produto.imagens.split(',')[0].trim() || '/placeholder-product.jpg'
+    }
+  }
 
   return (
     <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">

@@ -13,6 +13,8 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
   const [selectedVariacoes, setSelectedVariacoes] = useState({})
 
   useEffect(() => {
+    // Scroll to top when product changes
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     carregarProduto()
   }, [id])
 
@@ -221,14 +223,17 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
           </h1>
 
           <div className="mb-8">
-            <div className="text-4xl font-bold text-pink-600 mb-2">
-              R$ {produto.preco_venda?.toFixed(2)}
-            </div>
-            {produto.preco_original && produto.preco_original !== produto.preco_venda && (
-              <div className="text-lg text-gray-500 line-through">
-                R$ {produto.preco_original?.toFixed(2)}
+            {produto.preco_original && produto.preco_venda && produto.preco_venda > produto.preco_original && (
+              <div className="text-lg text-gray-500 line-through mb-1">
+                De: R$ {(produto.preco_venda * 1.3).toFixed(2)}
               </div>
             )}
+            <div className="flex items-baseline gap-2">
+              <span className="text-sm text-gray-600">Por:</span>
+              <span className="text-4xl font-bold text-pink-600">
+                R$ {produto.preco_venda?.toFixed(2)}
+              </span>
+            </div>
           </div>
 
           {/* Seleção de Tamanhos e Quantidades */}
