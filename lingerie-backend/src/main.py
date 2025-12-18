@@ -21,7 +21,18 @@ app.register_blueprint(scraper_bp, url_prefix='/api')
 app.register_blueprint(config_bp, url_prefix='/api')
 
 # Enable database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lingerie_store.db'
+# Use PostgreSQL in production (Render), SQLite locally
+database_url = os.environ.get('DATABASE_URL')
+if database_url:
+    # Render provides DATABASE_URL, use PostgreSQL
+    # Fix for SQLAlchemy 1.4+ which uses postgresql:// instead of postgres://
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+else:
+    # Local development, use SQLite
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lingerie_store.db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 with app.app_context():

@@ -29,13 +29,29 @@ git push -u origin main
 2. Clique em "Get Started for Free"
 3. Faça login com sua conta do GitHub
 
-### 3.2 Criar Web Service para o Backend
+### 3.2 Criar Banco de Dados PostgreSQL
+**IMPORTANTE**: É necessário criar o banco de dados ANTES do web service para que os produtos não desapareçam!
+
+1. No dashboard do Render, clique em "New +"
+2. Selecione "PostgreSQL"
+3. Configure:
+   - **Name**: `lingerie-db`
+   - **Database**: `lingerie_store`
+   - **User**: `lingerie_user`
+   - **Region**: Oregon (US West)
+   - **PostgreSQL Version**: 16
+   - **Instance Type**: `Free`
+
+4. Clique em "Create Database"
+5. **IMPORTANTE**: Anote a "Internal Database URL" (será usada pelo backend)
+
+### 3.3 Criar Web Service para o Backend
 1. No dashboard do Render, clique em "New +"
 2. Selecione "Web Service"
 3. Conecte seu repositório GitHub `loja-lingerie`
 4. Configure:
    - **Name**: `loja-lingerie-backend`
-   - **Region**: Oregon (US West) - mais próximo do Brasil
+   - **Region**: Oregon (US West) - **MESMA região do banco de dados**
    - **Branch**: `main`
    - **Root Directory**: `lingerie-backend`
    - **Runtime**: `Python 3`
@@ -46,11 +62,24 @@ git push -u origin main
 5. Clique em "Create Web Service"
 6. **IMPORTANTE**: Anote a URL gerada (ex: `https://loja-lingerie-backend.onrender.com`)
 
-### 3.3 Configurar Variáveis de Ambiente (Backend)
-1. No painel do serviço criado, vá em "Environment"
-2. Adicione:
+### 3.4 Conectar Backend ao Banco de Dados
+1. No painel do serviço backend criado, vá em "Environment"
+2. Clique em "Add Environment Variable"
+3. Adicione:
+   - **Key**: `DATABASE_URL`
+   - **Value**: Cole a "Internal Database URL" do PostgreSQL que você criou
+
+   OU (mais fácil):
+
+   - Clique em "Add from Database"
+   - Selecione `lingerie-db`
+   - Escolha "Internal Database URL"
+
+4. Adicione também:
    - `SECRET_KEY` = `sua-chave-secreta-aqui-123456`
    - `FLASK_ENV` = `production`
+
+5. Clique em "Save Changes" - o serviço irá reiniciar automaticamente
 
 ## 4️⃣ Deploy no Vercel (Frontend)
 
