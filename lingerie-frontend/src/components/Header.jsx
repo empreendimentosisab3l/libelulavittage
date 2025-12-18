@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom'
 import { Search, ShoppingBag, Menu, X, Settings, ShoppingCart } from 'lucide-react'
 import { Button } from './ui/button'
 import { useCart } from '../context/CartContext'
-import Cart from './Cart'
 
-const Header = ({ categorias }) => {
+const Header = ({ categorias, onOpenCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
-  const [isCartOpen, setIsCartOpen] = useState(false)
   const { getCartCount } = useCart()
 
   const handleSearch = (e) => {
@@ -62,7 +60,7 @@ const Header = ({ categorias }) => {
           <div className="hidden md:flex items-center gap-2">
             {/* Cart Button */}
             <button
-              onClick={() => setIsCartOpen(true)}
+              onClick={onOpenCart}
               className="relative p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
               <ShoppingCart className="h-6 w-6 text-gray-700" />
@@ -85,7 +83,7 @@ const Header = ({ categorias }) => {
           <div className="flex md:hidden items-center gap-2">
             {/* Cart Button Mobile */}
             <button
-              onClick={() => setIsCartOpen(true)}
+              onClick={onOpenCart}
               className="relative p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
               <ShoppingCart className="h-6 w-6 text-gray-700" />
@@ -230,9 +228,6 @@ const Header = ({ categorias }) => {
           </div>
         )}
       </div>
-
-      {/* Cart Modal */}
-      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   )
 }

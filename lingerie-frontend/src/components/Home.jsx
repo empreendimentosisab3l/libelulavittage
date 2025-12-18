@@ -4,10 +4,8 @@ import { ShoppingCart, MessageCircle, User } from 'lucide-react'
 import { Button } from './ui/button'
 import AddToCartModal from './AddToCartModal'
 import { useCart } from '../context/CartContext'
-import Cart from './Cart'
 
-const Home = ({ produtos }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false)
+const Home = ({ produtos, onOpenCart }) => {
   const { getCartCount } = useCart()
 
   return (
@@ -26,7 +24,7 @@ const Home = ({ produtos }) => {
         <div className="absolute top-6 right-6 flex items-center gap-4 z-20">
           {/* Cart Button */}
           <button
-            onClick={() => setIsCartOpen(true)}
+            onClick={onOpenCart}
             className="relative p-2 hover:bg-white/10 rounded-full transition-colors"
           >
             <ShoppingCart className="h-6 w-6 text-white drop-shadow-lg" />
@@ -103,9 +101,6 @@ const Home = ({ produtos }) => {
           </div>
         </div>
       </section>
-
-      {/* Cart Modal */}
-      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
       {/* Featured Products */}
       <section className="py-16 bg-white">

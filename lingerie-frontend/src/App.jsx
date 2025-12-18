@@ -7,12 +7,14 @@ import Catalogo from './components/Catalogo'
 import ProdutoDetalhes from './components/ProdutoDetalhes'
 import AdminPanel from './components/AdminPanel'
 import Footer from './components/Footer'
+import Cart from './components/Cart'
 import './App.css'
 
 function App() {
   const [produtos, setProdutos] = useState([])
   const [categorias, setCategorias] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
   const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api'
 
@@ -59,13 +61,13 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home produtos={produtos.slice(0, 8)} categorias={categorias} />}
+              element={<Home produtos={produtos.slice(0, 8)} categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />}
             />
             <Route
               path="/catalogo"
               element={
                 <>
-                  <Header categorias={categorias} />
+                  <Header categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />
                   <Catalogo
                     categorias={categorias}
                     apiBaseUrl={API_BASE_URL}
@@ -78,7 +80,7 @@ function App() {
               path="/produto/:id"
               element={
                 <>
-                  <Header categorias={categorias} />
+                  <Header categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />
                   <ProdutoDetalhes apiBaseUrl={API_BASE_URL} />
                   <Footer />
                 </>
@@ -88,13 +90,16 @@ function App() {
               path="/admin"
               element={
                 <>
-                  <Header categorias={categorias} />
+                  <Header categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />
                   <AdminPanel apiBaseUrl={API_BASE_URL} />
                   <Footer />
                 </>
               }
             />
           </Routes>
+
+          {/* Global Cart - renders at app level outside all stacking contexts */}
+          <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
         </div>
       </Router>
     </CartProvider>
