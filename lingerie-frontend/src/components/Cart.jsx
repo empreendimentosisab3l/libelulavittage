@@ -35,7 +35,7 @@ const Cart = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-end sm:items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm:items-center justify-center" style={{ zIndex: 99999 }}>
       <div className="bg-white w-full sm:max-w-2xl sm:rounded-lg max-h-[95vh] sm:max-h-[90vh] flex flex-col shadow-2xl">
         {/* Header */}
         <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
