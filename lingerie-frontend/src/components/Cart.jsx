@@ -109,62 +109,72 @@ const Cart = ({ isOpen, onClose }) => {
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
   const subtotal = item.produto.preco_venda * item.quantidade
+  const imagemUrl = item.produto.imagens?.split(',')[0] || '/placeholder-product.jpg'
 
   return (
-    <div className="flex gap-4 bg-gray-50 p-4 rounded-lg">
-      <img
-        src={item.produto.imagens?.[0] || '/placeholder-product.jpg'}
-        alt={item.produto.nome}
-        className="w-24 h-24 object-cover rounded-lg"
-        onError={(e) => {
-          e.target.src = '/placeholder-product.jpg'
-        }}
-      />
+    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+      <div className="flex gap-3 sm:gap-4">
+        <img
+          src={imagemUrl}
+          alt={item.produto.nome}
+          className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg flex-shrink-0"
+          onError={(e) => {
+            e.target.src = '/placeholder-product.jpg'
+          }}
+        />
 
-      <div className="flex-1">
-        <h3 className="font-semibold text-gray-800 mb-1">
-          {item.produto.nome}
-        </h3>
-        <div className="text-sm text-gray-600 mb-2">
-          <div>Tamanho: {item.tamanho}</div>
-          <div className="text-xs text-gray-400">Cód: {item.variacaoId}</div>
-        </div>
-
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="flex-1 min-w-0">
+          <div className="flex justify-between items-start gap-2 mb-2">
+            <h3 className="font-semibold text-gray-800 text-sm sm:text-base line-clamp-2">
+              {item.produto.nome}
+            </h3>
             <button
-              onClick={() => onUpdateQuantity(item.produto.id, item.variacaoId, item.quantidade - 1)}
-              className="w-7 h-7 rounded-full bg-white hover:bg-gray-200 flex items-center justify-center transition-colors border"
+              onClick={() => onRemove(item.produto.id, item.variacaoId)}
+              className="text-red-500 hover:text-red-700 p-1 flex-shrink-0"
+              title="Remover item"
             >
-              <Minus className="h-3 w-3" />
-            </button>
-
-            <span className="w-8 text-center font-semibold">
-              {item.quantidade}
-            </span>
-
-            <button
-              onClick={() => onUpdateQuantity(item.produto.id, item.variacaoId, item.quantidade + 1)}
-              className="w-7 h-7 rounded-full bg-pink-600 hover:bg-pink-700 text-white flex items-center justify-center transition-colors"
-            >
-              <Plus className="h-3 w-3" />
+              <Trash2 className="h-4 w-4" />
             </button>
           </div>
 
-          <button
-            onClick={() => onRemove(item.produto.id, item.variacaoId)}
-            className="text-red-500 hover:text-red-700 p-2"
-          >
-            <Trash2 className="h-4 w-4" />
-          </button>
-        </div>
-
-        <div className="mt-2 text-right">
-          <div className="text-sm text-gray-600">
-            R$ {item.produto.preco_venda.toFixed(2)} cada
+          <div className="text-sm text-gray-600 mb-2 space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="font-medium">Tamanho:</span>
+              <span className="bg-white px-2 py-0.5 rounded text-xs font-semibold">{item.tamanho}</span>
+            </div>
+            <div className="text-xs text-gray-400">Código: {item.variacaoId}</div>
           </div>
-          <div className="text-lg font-bold text-pink-600">
-            R$ {subtotal.toFixed(2)}
+
+          <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-200">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => onUpdateQuantity(item.produto.id, item.variacaoId, item.quantidade - 1)}
+                className="w-7 h-7 rounded-full bg-white hover:bg-gray-200 flex items-center justify-center transition-colors border border-gray-300"
+                disabled={item.quantidade <= 1}
+              >
+                <Minus className="h-3 w-3" />
+              </button>
+
+              <span className="w-8 text-center font-semibold text-gray-800">
+                {item.quantidade}
+              </span>
+
+              <button
+                onClick={() => onUpdateQuantity(item.produto.id, item.variacaoId, item.quantidade + 1)}
+                className="w-7 h-7 rounded-full bg-pink-600 hover:bg-pink-700 text-white flex items-center justify-center transition-colors"
+              >
+                <Plus className="h-3 w-3" />
+              </button>
+            </div>
+
+            <div className="text-right">
+              <div className="text-xs text-gray-500">
+                {item.quantidade}x R$ {item.produto.preco_venda.toFixed(2)}
+              </div>
+              <div className="text-base sm:text-lg font-bold text-pink-600">
+                R$ {subtotal.toFixed(2)}
+              </div>
+            </div>
           </div>
         </div>
       </div>
