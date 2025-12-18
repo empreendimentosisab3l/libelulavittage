@@ -13,8 +13,8 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
   const [selectedVariacoes, setSelectedVariacoes] = useState({})
 
   useEffect(() => {
-    // Scroll to top when product changes
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // Scroll to top instantly when product changes
+    window.scrollTo(0, 0)
     carregarProduto()
   }, [id])
 
