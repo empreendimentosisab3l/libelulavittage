@@ -35,8 +35,8 @@ const Cart = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end sm:items-center justify-center">
-      <div className="bg-white w-full sm:max-w-2xl sm:rounded-lg max-h-[95vh] sm:max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-end sm:items-center justify-center">
+      <div className="bg-white w-full sm:max-w-2xl sm:rounded-lg max-h-[95vh] sm:max-h-[90vh] flex flex-col shadow-2xl">
         {/* Header */}
         <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -110,14 +110,6 @@ const Cart = ({ isOpen, onClose }) => {
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
   const subtotal = item.produto.preco_venda * item.quantidade
 
-  // Debug: log the actual data
-  console.log('CartItem Debug:', {
-    nome: item.produto.nome,
-    imagens: item.produto.imagens,
-    imagensType: typeof item.produto.imagens,
-    isArray: Array.isArray(item.produto.imagens)
-  })
-
   // Handle both array and string formats for images
   let imagemUrl = '/placeholder-product.jpg'
   if (item.produto.imagens) {
@@ -127,8 +119,6 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
       imagemUrl = item.produto.imagens.split(',')[0].trim() || '/placeholder-product.jpg'
     }
   }
-
-  console.log('Final imagemUrl:', imagemUrl)
 
   return (
     <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
