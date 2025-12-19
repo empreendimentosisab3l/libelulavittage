@@ -13,8 +13,8 @@ from src.routes.config import config_bp
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
 
-# Enable CORS for all routes
-CORS(app)
+# Enable CORS for all routes - Allow requests from Vercel
+CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
 app.register_blueprint(produtos_bp, url_prefix='/api')
 app.register_blueprint(scraper_bp, url_prefix='/api')
