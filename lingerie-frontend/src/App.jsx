@@ -8,6 +8,7 @@ import ProdutoDetalhes from './components/ProdutoDetalhes'
 import AdminPanel from './components/AdminPanel'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
+import ProductSkeleton from './components/ProductSkeleton'
 import './App.css'
 
 function App() {
@@ -45,11 +46,26 @@ function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Carregando produtos...</p>
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section Skeleton */}
+        <div className="bg-gradient-to-b from-gray-300 to-gray-200 h-[70vh] md:h-[80vh] flex items-center justify-center animate-pulse">
+          <div className="text-center">
+            <div className="h-20 md:h-32 w-32 md:w-48 bg-white/30 rounded-lg mx-auto mb-8"></div>
+            <div className="h-8 w-64 bg-white/30 rounded mx-auto"></div>
+          </div>
         </div>
+
+        {/* Products Skeleton */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="h-10 w-64 bg-gray-200 rounded mx-auto mb-12 animate-pulse"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[...Array(8)].map((_, i) => (
+                <ProductSkeleton key={i} />
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     )
   }
