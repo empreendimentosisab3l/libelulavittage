@@ -9,6 +9,7 @@ import AdminPanel from './components/AdminPanel'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
 import ProductSkeleton from './components/ProductSkeleton'
+import { startKeepAlive, stopKeepAlive } from './utils/keepAlive'
 import './App.css'
 
 function App() {
@@ -21,6 +22,14 @@ function App() {
 
   useEffect(() => {
     carregarDados()
+
+    // Start keep-alive service to prevent backend from sleeping
+    startKeepAlive()
+
+    // Cleanup on unmount
+    return () => {
+      stopKeepAlive()
+    }
   }, [])
 
   const carregarDados = async () => {
