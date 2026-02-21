@@ -265,19 +265,28 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                             imagens_final.append(img)
                     imagens_str = ','.join(imagens_final)
                     
-                    # Variants - usar 'disponibilidade' como fonte de verdade
-                    # (mesmo campo que o fornecedor usa para exibir na página)
+                    # Variants - usar disponibilidade + estoque como filtro
+                    # disponibilidade = IDs exibidos na página (inclui esgotados)
+                    # estoque = quantidade real em estoque
+                    # Filtro: na disponibilidade E com estoque > 0
                     tamanhos_set = set()
                     cores_set = set()
 
                     variacoes = item_encontrado.get('variacoes', {})
                     disponibilidade = item_encontrado.get('disponibilidade', {})
+                    estoque_map = item_encontrado.get('estoque', {})
 
                     if isinstance(variacoes, dict) and isinstance(disponibilidade, dict) and disponibilidade:
-                        # disponibilidade contém APENAS os IDs que o fornecedor exibe na página
                         for var_id in disponibilidade.keys():
                             var_data = variacoes.get(var_id)
                             if not var_data:
+                                continue
+                            # Verificar estoque real (só incluir se tem estoque)
+                            try:
+                                stock = int(estoque_map.get(var_id, 0))
+                            except (ValueError, TypeError):
+                                stock = 0
+                            if stock <= 0:
                                 continue
                             var_nome = var_data.get('nome', '').strip()
                             var_cor = var_data.get('cor')
@@ -289,18 +298,23 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                                 else:
                                     tamanhos_set.add(var_nome)
                     elif isinstance(variacoes, dict):
-                        # Fallback: sem disponibilidade, usar status como filtro
+                        # Fallback: sem disponibilidade, usar estoque como filtro
                         for var_id, var_data in variacoes.items():
-                            if var_data.get('status') == "1":
-                                var_nome = var_data.get('nome', '').strip()
-                                var_cor = var_data.get('cor')
-                                if var_cor and var_cor.strip():
-                                    cores_set.add(var_nome)
+                            try:
+                                stock = int(estoque_map.get(var_id, 0)) if estoque_map else int(var_data.get('total_produtos', '0'))
+                            except (ValueError, TypeError):
+                                stock = 0
+                            if stock <= 0:
+                                continue
+                            var_nome = var_data.get('nome', '').strip()
+                            var_cor = var_data.get('cor')
+                            if var_cor and var_cor.strip():
+                                cores_set.add(var_nome)
+                            else:
+                                if var_nome.lower().startswith("tamanho "):
+                                    tamanhos_set.add(var_nome[8:].strip())
                                 else:
-                                    if var_nome.lower().startswith("tamanho "):
-                                        tamanhos_set.add(var_nome[8:].strip())
-                                    else:
-                                        tamanhos_set.add(var_nome)
+                                    tamanhos_set.add(var_nome)
                     
                     import re
                     match_cor = re.search(r'\((.*?)\)', nome)
