@@ -3,11 +3,18 @@ import { useSearchParams, Link } from 'react-router-dom'
 import { ShoppingCart, Filter, X } from 'lucide-react'
 import { Button } from './ui/button'
 import AddToCartModal from './AddToCartModal'
+import ProductSkeleton from './ProductSkeleton'
+
+const PER_PAGE = 24
 
 const Catalogo = ({ categorias, apiBaseUrl }) => {
   const [searchParams] = useSearchParams()
   const [produtos, setProdutos] = useState([])
   const [loading, setLoading] = useState(true)
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
+  const [totalProdutos, setTotalProdutos] = useState(0)
   const [showFilters, setShowFilters] = useState(false)
 
   // Sincronizar filtros com URL params
@@ -17,26 +24,52 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
   }), [searchParams])
 
   useEffect(() => {
-    carregarProdutos()
+    // Reset quando filtros mudam
+    setProdutos([])
+    setCurrentPage(1)
+    carregarProdutos(1, true)
   }, [filtros.categoria, filtros.busca])
 
-  const carregarProdutos = async () => {
+  const carregarProdutos = async (page = 1, reset = false) => {
     try {
-      setLoading(true)
+      if (reset) {
+        setLoading(true)
+      } else {
+        setLoadingMore(true)
+      }
 
       const params = new URLSearchParams()
-      params.append('all', 'true')  // Carregar todos os produtos
+      params.append('page', page.toString())
+      params.append('per_page', PER_PAGE.toString())
       if (filtros.categoria) params.append('categoria', filtros.categoria)
       if (filtros.busca) params.append('busca', filtros.busca)
 
       const response = await fetch(`${apiBaseUrl}/produtos?${params}`)
       const data = await response.json()
-      setProdutos(data.produtos || [])
+
+      const novosProdutos = data.produtos || []
+
+      if (reset) {
+        setProdutos(novosProdutos)
+      } else {
+        setProdutos(prev => [...prev, ...novosProdutos])
+      }
+
+      setTotalPages(data.pages || 1)
+      setTotalProdutos(data.total || 0)
+      setCurrentPage(page)
 
     } catch (error) {
       console.error('Erro ao carregar produtos:', error)
     } finally {
       setLoading(false)
+      setLoadingMore(false)
+    }
+  }
+
+  const carregarMais = () => {
+    if (currentPage < totalPages) {
+      carregarProdutos(currentPage + 1, false)
     }
   }
 
@@ -54,17 +87,6 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
 
   const limparFiltros = () => {
     window.location.href = '/catalogo'
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Carregando produtos...</p>
-        </div>
-      </div>
-    )
   }
 
   return (
@@ -156,10 +178,21 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
 
         {/* Grid de produtos */}
         <main className="flex-1 min-w-0">
-          {produtos.length > 0 ? (
+          {loading ? (
             <>
               <div className="mb-4 text-sm text-gray-600 px-1">
-                {produtos.length} produto{produtos.length !== 1 ? 's' : ''} encontrado{produtos.length !== 1 ? 's' : ''}
+                Carregando produtos...
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6">
+                {[...Array(PER_PAGE)].map((_, i) => (
+                  <ProductSkeleton key={i} />
+                ))}
+              </div>
+            </>
+          ) : produtos.length > 0 ? (
+            <>
+              <div className="mb-4 text-sm text-gray-600 px-1">
+                {produtos.length} de {totalProdutos} produto{totalProdutos !== 1 ? 's' : ''}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6">
@@ -167,6 +200,21 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
                   <ProductCard key={produto.id} produto={produto} />
                 ))}
               </div>
+
+              {currentPage < totalPages && (
+                <div className="text-center mt-8">
+                  <Button
+                    onClick={carregarMais}
+                    disabled={loadingMore}
+                    className="bg-pink-600 hover:bg-pink-700 px-8"
+                  >
+                    {loadingMore ? 'Carregando...' : 'Carregar Mais Produtos'}
+                  </Button>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Mostrando {produtos.length} de {totalProdutos} produtos
+                  </p>
+                </div>
+              )}
             </>
           ) : (
             <div className="text-center py-12 px-4">

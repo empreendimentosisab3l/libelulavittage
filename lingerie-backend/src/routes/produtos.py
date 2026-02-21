@@ -9,16 +9,17 @@ def get_configuracao(chave, valor_padrao):
     config = Configuracao.query.filter_by(chave=chave).first()
     return config.valor if config else valor_padrao
 
-def gerar_link_whatsapp(produto):
+def gerar_link_whatsapp(produto, numero_whatsapp=None):
     """Gera link do WhatsApp com mensagem personalizada"""
-    numero_whatsapp = get_configuracao('numero_whatsapp', '5511999999999')
-    
+    if numero_whatsapp is None:
+        numero_whatsapp = get_configuracao('numero_whatsapp', '5511999999999')
+
     mensagem = f"""Olá! Tenho interesse no produto:
 *{produto.nome}*
 Preço: R$ {produto.preco_venda:.2f}
 
 Gostaria de mais informações!"""
-    
+
     mensagem_encoded = urllib.parse.quote(mensagem)
     return f"https://wa.me/{numero_whatsapp}?text={mensagem_encoded}"
 
@@ -27,10 +28,9 @@ def listar_produtos():
     """Lista produtos com paginação e filtros"""
     try:
         page = request.args.get('page', 1, type=int)
-        per_page = request.args.get('per_page', 50, type=int)  # Aumentado para 50
+        per_page = request.args.get('per_page', 24, type=int)
         categoria = request.args.get('categoria')
         busca = request.args.get('busca')
-        mostrar_todos = request.args.get('all', 'false').lower() == 'true'
 
         query = Produto.query.filter_by(ativo=True)
 
@@ -40,24 +40,10 @@ def listar_produtos():
         if busca:
             query = query.filter(Produto.nome.ilike(f'%{busca}%'))
 
-        # Se all=true, retornar todos os produtos sem paginação
-        if mostrar_todos:
-            todos_produtos = query.all()
-            produtos_dict = []
-            for produto in todos_produtos:
-                produto_dict = produto.to_dict()
-                produto_dict['link_whatsapp'] = gerar_link_whatsapp(produto)
-                produtos_dict.append(produto_dict)
+        # Buscar número do WhatsApp uma única vez (resolve N+1 query)
+        numero_whatsapp = get_configuracao('numero_whatsapp', '5511999999999')
 
-            return jsonify({
-                'produtos': produtos_dict,
-                'total': len(produtos_dict),
-                'pages': 1,
-                'current_page': 1,
-                'per_page': len(produtos_dict)
-            })
-
-        # Paginação normal
+        # Paginação
         produtos_paginados = query.paginate(
             page=page,
             per_page=per_page,
@@ -67,7 +53,7 @@ def listar_produtos():
         produtos_dict = []
         for produto in produtos_paginados.items:
             produto_dict = produto.to_dict()
-            produto_dict['link_whatsapp'] = gerar_link_whatsapp(produto)
+            produto_dict['link_whatsapp'] = gerar_link_whatsapp(produto, numero_whatsapp)
             produtos_dict.append(produto_dict)
 
         return jsonify({

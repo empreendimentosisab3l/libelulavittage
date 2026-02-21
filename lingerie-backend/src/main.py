@@ -34,6 +34,15 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lingerie_store.db'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Pool recycling para evitar conexões mortas com PostgreSQL (psycopg2 OperationalError)
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    'pool_recycle': 280,      # Reciclar conexões a cada ~5 min (antes do timeout do Render)
+    'pool_pre_ping': True,    # Verificar se a conexão está viva antes de usar
+    'pool_size': 5,           # Tamanho do pool de conexões
+    'max_overflow': 10        # Conexões extras permitidas
+}
+
 db.init_app(app)
 with app.app_context():
     db.create_all()
