@@ -13,7 +13,7 @@ class Produto(db.Model):
     categoria = db.Column(db.String(100), nullable=False)
     descricao = db.Column(db.Text)
     imagens = db.Column(db.Text)  # JSON string with image URLs
-    tamanhos = db.Column(db.String(500)) # Lista de tamanhos (P, M, G...)
+    tamanhos = db.Column(db.Text) # Lista de tamanhos (P, M, G...)
     cores = db.Column(db.Text, nullable=True) # Cores disponíveis (ex: "Vermelho, Preto")
     data_hash = db.Column(db.String(32), nullable=True) # Hash MD5 para controle de alterações
     link_whatsapp = db.Column(db.String(1000))  # Link do WhatsApp

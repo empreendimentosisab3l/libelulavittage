@@ -320,34 +320,39 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                         continue
 
                     # SAVE TO DB
-                    prod = Produto.query.filter_by(url_original=str(pid)).first()
-                    preco_venda = aplicar_margem_lucro(preco_original)
-                    link_whatsapp = gerar_link_whatsapp(nome, preco_venda)
-                    
-                    if prod:
-                        prod.preco_original = preco_original
-                        prod.preco_venda = preco_venda
-                        prod.imagens = imagens_str
-                        prod.link_whatsapp = link_whatsapp
-                        prod.tamanhos = tamanhos_str
-                        prod.cores = cores_str
-                        prod.data_hash = new_hash # Save new hash
-                        prod.data_atualizacao = datetime.utcnow()
-                        results['atualizados'] += 1
-                    else:
-                        new_prod = Produto(
-                            nome=nome, preco_original=preco_original, preco_venda=preco_venda,
-                            categoria=categoria, descricao=f"{nome} - {categoria}",
-                            imagens=imagens_str, link_whatsapp=link_whatsapp,
-                            url_original=str(pid), tamanhos=tamanhos_str, cores=cores_str,
-                            data_hash=new_hash
-                        )
-                        db.session.add(new_prod)
-                        results['criados'] += 1
-                    
-                    if (results['criados'] + results['atualizados']) % 50 == 0:
-                        db.session.commit()
-                        
+                    try:
+                        prod = Produto.query.filter_by(url_original=str(pid)).first()
+                        preco_venda = aplicar_margem_lucro(preco_original)
+                        link_whatsapp = gerar_link_whatsapp(nome, preco_venda)
+
+                        if prod:
+                            prod.preco_original = preco_original
+                            prod.preco_venda = preco_venda
+                            prod.imagens = imagens_str
+                            prod.link_whatsapp = link_whatsapp
+                            prod.tamanhos = tamanhos_str
+                            prod.cores = cores_str
+                            prod.data_hash = new_hash
+                            prod.data_atualizacao = datetime.utcnow()
+                            results['atualizados'] += 1
+                        else:
+                            new_prod = Produto(
+                                nome=nome, preco_original=preco_original, preco_venda=preco_venda,
+                                categoria=categoria, descricao=f"{nome} - {categoria}",
+                                imagens=imagens_str, link_whatsapp=link_whatsapp,
+                                url_original=str(pid), tamanhos=tamanhos_str, cores=cores_str,
+                                data_hash=new_hash
+                            )
+                            db.session.add(new_prod)
+                            results['criados'] += 1
+
+                        if (results['criados'] + results['atualizados']) % 50 == 0:
+                            db.session.commit()
+                    except Exception as db_err:
+                        db.session.rollback()
+                        print(f"DB error saving product {pid}: {db_err}")
+                        results['erros'] += 1
+
             except Exception as e:
                 print(f"Exception processing {pid}: {e}")
                 results['erros'] += 1
@@ -356,7 +361,7 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
         db.session.commit()
     except Exception as e:
         db.session.rollback()
-        raise e
+        print(f"Final commit error: {e}")
         
     return results['criados'], results['atualizados']
 
