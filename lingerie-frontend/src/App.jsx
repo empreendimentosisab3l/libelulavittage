@@ -8,7 +8,6 @@ import ProdutoDetalhes from './components/ProdutoDetalhes'
 import AdminPanel from './components/AdminPanel'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
-import ProductSkeleton from './components/ProductSkeleton'
 import { startKeepAlive, stopKeepAlive } from './utils/keepAlive'
 import './App.css'
 
@@ -35,48 +34,26 @@ function App() {
   const carregarDados = async () => {
     try {
       setLoading(true)
-      
-      // Carregar produtos
-      const produtosResponse = await fetch(`${API_BASE_URL}/produtos`)
-      const produtosData = await produtosResponse.json()
+
+      // Carregar produtos e categorias em paralelo
+      const [produtosResponse, categoriasResponse] = await Promise.all([
+        fetch(`${API_BASE_URL}/produtos?per_page=8`),
+        fetch(`${API_BASE_URL}/categorias`)
+      ])
+
+      const [produtosData, categoriasData] = await Promise.all([
+        produtosResponse.json(),
+        categoriasResponse.json()
+      ])
+
       setProdutos(produtosData.produtos || [])
-      
-      // Carregar categorias
-      const categoriasResponse = await fetch(`${API_BASE_URL}/categorias`)
-      const categoriasData = await categoriasResponse.json()
       setCategorias(categoriasData.categorias || [])
-      
+
     } catch (error) {
       console.error('Erro ao carregar dados:', error)
     } finally {
       setLoading(false)
     }
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        {/* Hero Section Skeleton */}
-        <div className="bg-gradient-to-b from-gray-300 to-gray-200 h-[70vh] md:h-[80vh] flex items-center justify-center animate-pulse">
-          <div className="text-center">
-            <div className="h-20 md:h-32 w-32 md:w-48 bg-white/30 rounded-lg mx-auto mb-8"></div>
-            <div className="h-8 w-64 bg-white/30 rounded mx-auto"></div>
-          </div>
-        </div>
-
-        {/* Products Skeleton */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="h-10 w-64 bg-gray-200 rounded mx-auto mb-12 animate-pulse"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[...Array(8)].map((_, i) => (
-                <ProductSkeleton key={i} />
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-    )
   }
 
   return (
@@ -86,7 +63,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home produtos={produtos.slice(0, 8)} categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />}
+              element={<Home produtos={produtos} categorias={categorias} loading={loading} onOpenCart={() => setIsCartOpen(true)} />}
             />
             <Route
               path="/catalogo"

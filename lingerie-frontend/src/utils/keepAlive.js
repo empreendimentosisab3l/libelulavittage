@@ -22,8 +22,10 @@ export const startKeepAlive = () => {
 
   console.log('[KeepAlive] Starting keep-alive service...')
 
-  // Ping immediately on start
-  pingBackend()
+  // Delay first ping to avoid competing with initial page load
+  setTimeout(() => {
+    pingBackend()
+  }, 30 * 1000) // 30 seconds
 
   // Then ping every 10 minutes
   pingInterval = setInterval(() => {

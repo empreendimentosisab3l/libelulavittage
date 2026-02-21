@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { ShoppingCart, MessageCircle, User } from 'lucide-react'
 import { Button } from './ui/button'
 import AddToCartModal from './AddToCartModal'
+import ProductSkeleton from './ProductSkeleton'
 import { useCart } from '../context/CartContext'
 
-const Home = ({ produtos, onOpenCart }) => {
+const Home = ({ produtos, onOpenCart, loading }) => {
   const { getCartCount } = useCart()
 
   return (
@@ -109,7 +110,13 @@ const Home = ({ produtos, onOpenCart }) => {
             Produtos em Destaque
           </h2>
 
-          {produtos.length > 0 ? (
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[...Array(8)].map((_, i) => (
+                <ProductSkeleton key={i} />
+              ))}
+            </div>
+          ) : produtos.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {produtos.map((produto) => (
                 <ProductCard key={produto.id} produto={produto} />
