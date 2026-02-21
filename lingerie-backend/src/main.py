@@ -46,12 +46,17 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
 db.init_app(app)
 with app.app_context():
     db.create_all()
-    # Migrar coluna tamanhos de VARCHAR(500) para TEXT (necessário para produtos com muitas variantes)
-    try:
-        db.session.execute(db.text('ALTER TABLE produtos ALTER COLUMN tamanhos TYPE TEXT'))
-        db.session.commit()
-    except Exception:
-        db.session.rollback()  # Já é TEXT ou tabela não existe ainda
+    # Migrações de banco (idempotentes — ignoram erro se já existir)
+    migrations = [
+        'ALTER TABLE produtos ALTER COLUMN tamanhos TYPE TEXT',
+        'ALTER TABLE produtos ADD COLUMN destaque BOOLEAN DEFAULT FALSE',
+    ]
+    for sql in migrations:
+        try:
+            db.session.execute(db.text(sql))
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

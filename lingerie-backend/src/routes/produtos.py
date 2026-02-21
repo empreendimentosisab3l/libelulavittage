@@ -40,6 +40,9 @@ def listar_produtos():
         if busca:
             query = query.filter(Produto.nome.ilike(f'%{busca}%'))
 
+        # Ordenar: destaques primeiro, depois por ID decrescente (mais recentes)
+        query = query.order_by(Produto.destaque.desc(), Produto.id.desc())
+
         # Buscar número do WhatsApp uma única vez (resolve N+1 query)
         numero_whatsapp = get_configuracao('numero_whatsapp', '5511999999999')
 

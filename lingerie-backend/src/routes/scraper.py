@@ -172,9 +172,9 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
 
     import hashlib
 
-    def calculate_hash(preco, imagens, tamanhos, cores):
+    def calculate_hash(preco, imagens, tamanhos, cores, destaque=False):
         # Create a fingerprint string
-        raw = f"{preco}-{imagens}-{tamanhos}-{cores}"
+        raw = f"{preco}-{imagens}-{tamanhos}-{cores}-{destaque}"
         return hashlib.md5(raw.encode('utf-8')).hexdigest()
 
     # Thread-safe counters
@@ -323,9 +323,12 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                     
                     tamanhos_str = ', '.join(sorted(list(tamanhos_set)))
                     cores_str = ', '.join(sorted(list(cores_set)))
-                    
+
+                    # Destaque (fornecedor usa "1" string ou 1 int)
+                    destaque = str(item_encontrado.get('destaque', '0')) == '1'
+
                     # HASH CHECK
-                    new_hash = calculate_hash(preco_original, imagens_str, tamanhos_str, cores_str)
+                    new_hash = calculate_hash(preco_original, imagens_str, tamanhos_str, cores_str, destaque)
                     existing_data = existing_map.get(str(pid))
                     
                     if existing_data and existing_data.get('data_hash') == new_hash:
@@ -346,6 +349,7 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                             prod.link_whatsapp = link_whatsapp
                             prod.tamanhos = tamanhos_str
                             prod.cores = cores_str
+                            prod.destaque = destaque
                             prod.data_hash = new_hash
                             prod.data_atualizacao = datetime.utcnow()
                             results['atualizados'] += 1
@@ -355,7 +359,7 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                                 categoria=categoria, descricao=f"{nome} - {categoria}",
                                 imagens=imagens_str, link_whatsapp=link_whatsapp,
                                 url_original=str(pid), tamanhos=tamanhos_str, cores=cores_str,
-                                data_hash=new_hash
+                                destaque=destaque, data_hash=new_hash
                             )
                             db.session.add(new_prod)
                             results['criados'] += 1

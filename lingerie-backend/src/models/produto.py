@@ -18,6 +18,7 @@ class Produto(db.Model):
     data_hash = db.Column(db.String(32), nullable=True) # Hash MD5 para controle de alterações
     link_whatsapp = db.Column(db.String(1000))  # Link do WhatsApp
     url_original = db.Column(db.String(500))
+    destaque = db.Column(db.Boolean, default=False) # Produto em destaque no fornecedor
     ativo = db.Column(db.Boolean, default=True)
     data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
     data_atualizacao = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -35,6 +36,7 @@ class Produto(db.Model):
             'cores': self.cores,
             'link_whatsapp': self.link_whatsapp,
             'url_original': self.url_original,
+            'destaque': self.destaque or False,
             'ativo': self.ativo,
             'data_criacao': self.data_criacao.isoformat() if self.data_criacao else None,
             'data_atualizacao': self.data_atualizacao.isoformat() if self.data_atualizacao else None
