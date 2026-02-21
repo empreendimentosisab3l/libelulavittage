@@ -31,7 +31,7 @@ class Produto(db.Model):
             'categoria': self.categoria,
             'descricao': self.descricao,
             'imagens': self.imagens.split(',') if self.imagens else [],
-            'tamanhos': self.tamanhos,
+            'tamanhos': self.tamanhos.split(', ') if self.tamanhos else [],
             'cores': self.cores,
             'link_whatsapp': self.link_whatsapp,
             'url_original': self.url_original,

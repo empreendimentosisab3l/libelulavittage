@@ -38,12 +38,17 @@ const AddToCartModal = ({ produto, isOpen, onClose }) => {
   }
 
   const getVariacaoInfo = (variacaoId) => {
-    // Parse o ID da variação (ex: "FZ3507924.1" -> tamanho P)
-    const tamanhos = ['P', 'M', 'G', 'GG', 'XG', 'XXG']
+    // Buscar tamanho da lista dinâmica do produto
+    const tamanhosDaAPI = Array.isArray(produto.tamanhos) && produto.tamanhos.length > 0
+      ? produto.tamanhos
+      : typeof produto.tamanhos === 'string' && produto.tamanhos.trim()
+        ? produto.tamanhos.split(', ')
+        : ['Tamanho Único']
+
     const parts = variacaoId.split('.')
     const index = parseInt(parts[1]) - 1
     return {
-      tamanho: tamanhos[index] || 'Único',
+      tamanho: tamanhosDaAPI[index] || 'Único',
       id: variacaoId
     }
   }
@@ -52,12 +57,17 @@ const AddToCartModal = ({ produto, isOpen, onClose }) => {
     return Object.values(selectedVariacoes).reduce((sum, qty) => sum + qty, 0)
   }
 
-  // Simular variações de tamanho baseadas no ID do produto
+  // Variações de tamanho dinâmicas (vindas do fornecedor via API)
   const getVariacoes = () => {
     const baseCode = produto.id?.toString().padStart(8, '0') || '00000000'
-    const tamanhos = ['P', 'M', 'G', 'GG']
 
-    return tamanhos.map((tamanho, index) => ({
+    const tamanhosDaAPI = Array.isArray(produto.tamanhos) && produto.tamanhos.length > 0
+      ? produto.tamanhos
+      : typeof produto.tamanhos === 'string' && produto.tamanhos.trim()
+        ? produto.tamanhos.split(', ')
+        : ['Tamanho Único']
+
+    return tamanhosDaAPI.map((tamanho, index) => ({
       id: `FZ${baseCode}.${index + 1}`,
       tamanho,
       preco: produto.preco_venda

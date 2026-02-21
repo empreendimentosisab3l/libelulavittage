@@ -50,9 +50,15 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
 
   const getVariacoes = () => {
     const baseCode = produto.id?.toString().padStart(8, '0') || '00000000'
-    const tamanhos = ['P', 'M', 'G', 'GG']
 
-    return tamanhos.map((tamanho, index) => ({
+    // Usar tamanhos dinâmicos da API (vindos do fornecedor)
+    const tamanhosDaAPI = Array.isArray(produto.tamanhos) && produto.tamanhos.length > 0
+      ? produto.tamanhos
+      : typeof produto.tamanhos === 'string' && produto.tamanhos.trim()
+        ? produto.tamanhos.split(', ')
+        : ['Tamanho Único']
+
+    return tamanhosDaAPI.map((tamanho, index) => ({
       id: `FZ${baseCode}.${index + 1}`,
       tamanho,
       preco: produto.preco_venda

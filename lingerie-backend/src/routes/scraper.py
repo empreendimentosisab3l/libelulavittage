@@ -265,37 +265,36 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                             imagens_final.append(img)
                     imagens_str = ','.join(imagens_final)
                     
-                    # Variants
+                    # Variants - usar 'disponibilidade' como fonte de verdade
+                    # (mesmo campo que o fornecedor usa para exibir na página)
                     tamanhos_set = set()
                     cores_set = set()
-                    
-                    variacoes = item_encontrado.get('variacoes', {})
-                    estoque_map = item_encontrado.get('estoque', {})
-                    
-                    if isinstance(variacoes, dict):
-                        for var_id, var_data in variacoes.items():
-                            # Check stock in the root 'estoque' map first (definitive for this product ID)
-                            # Fallback to var_data['total_produtos'] only if 'estoque' is empty/missing
-                            
-                            # Check stock in the root 'estoque' map first (definitive for this product ID)
-                            stock_real = 0
-                            
-                            if estoque_map:
-                                # If 'estoque' exists, it is the Authority.
-                                # Keys missing from it mean stock = 0.
-                                # Examples: EXGG ids were missing from estoque but present in variacoes.
-                                try:
-                                    stock_real = int(estoque_map.get(var_id, 0))
-                                except:
-                                    stock_real = 0
-                            else:
-                                # Only fallback to total_produtos if estoque map is completely missing from API
-                                stock_real = int(var_data.get('total_produtos', '0'))
 
-                            if var_data.get('status') == "1" and stock_real > 0:
+                    variacoes = item_encontrado.get('variacoes', {})
+                    disponibilidade = item_encontrado.get('disponibilidade', {})
+
+                    if isinstance(variacoes, dict) and isinstance(disponibilidade, dict) and disponibilidade:
+                        # disponibilidade contém APENAS os IDs que o fornecedor exibe na página
+                        for var_id in disponibilidade.keys():
+                            var_data = variacoes.get(var_id)
+                            if not var_data:
+                                continue
+                            var_nome = var_data.get('nome', '').strip()
+                            var_cor = var_data.get('cor')
+                            if var_cor and var_cor.strip():
+                                cores_set.add(var_nome)
+                            else:
+                                if var_nome.lower().startswith("tamanho "):
+                                    tamanhos_set.add(var_nome[8:].strip())
+                                else:
+                                    tamanhos_set.add(var_nome)
+                    elif isinstance(variacoes, dict):
+                        # Fallback: sem disponibilidade, usar status como filtro
+                        for var_id, var_data in variacoes.items():
+                            if var_data.get('status') == "1":
                                 var_nome = var_data.get('nome', '').strip()
                                 var_cor = var_data.get('cor')
-                                if var_cor:
+                                if var_cor and var_cor.strip():
                                     cores_set.add(var_nome)
                                 else:
                                     if var_nome.lower().startswith("tamanho "):
