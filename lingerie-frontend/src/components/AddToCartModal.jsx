@@ -77,13 +77,13 @@ const AddToCartModal = ({ produto, isOpen, onClose }) => {
   const variacoes = getVariacoes()
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
-          <h2 className="text-xl font-bold text-gray-800">{produto.nome}</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+      <div className="bg-[#1a1a1a] rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#c9a96e]/20">
+        <div className="sticky top-0 bg-[#1a1a1a] border-b border-[#c9a96e]/20 p-4 flex justify-between items-center">
+          <h2 className="text-xl font-bold text-white font-display">{produto.nome}</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-2 hover:bg-[#0a0a0a] rounded-full transition-colors text-white"
           >
             <X className="h-6 w-6" />
           </button>
@@ -102,22 +102,22 @@ const AddToCartModal = ({ produto, isOpen, onClose }) => {
           </div>
 
           <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-4">Escolha as Variações</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Selecione seu Tamanho</h3>
 
             <div className="space-y-3">
               {variacoes.map((variacao) => (
                 <div
                   key={variacao.id}
-                  className="flex items-center justify-between p-4 border rounded-lg hover:border-pink-300 transition-colors"
+                  className="flex items-center justify-between p-4 border border-[#c9a96e]/20 rounded-lg hover:border-[#c9a96e] transition-colors bg-[#0a0a0a]"
                 >
                   <div className="flex-1">
-                    <div className="font-semibold text-gray-800">
+                    <div className="font-semibold text-white">
                       Tamanho {variacao.tamanho}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-400">
                       R$ {variacao.preco.toFixed(2)}
                     </div>
-                    <div className="text-xs text-gray-400 mt-1">
+                    <div className="text-xs text-gray-500 mt-1">
                       # {variacao.id}
                     </div>
                   </div>
@@ -125,19 +125,19 @@ const AddToCartModal = ({ produto, isOpen, onClose }) => {
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => handleQuantityChange(variacao.id, variacao.tamanho, -1)}
-                      className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#1a1a1a] hover:bg-[#2a2a2a] flex items-center justify-center transition-colors border border-[#c9a96e]/30 text-white"
                       disabled={!selectedVariacoes[variacao.id]}
                     >
                       <Minus className="h-4 w-4" />
                     </button>
 
-                    <span className="w-8 text-center font-semibold">
+                    <span className="w-8 text-center font-semibold text-white">
                       {selectedVariacoes[variacao.id] || 0}
                     </span>
 
                     <button
                       onClick={() => handleQuantityChange(variacao.id, variacao.tamanho, 1)}
-                      className="w-8 h-8 rounded-full bg-pink-600 hover:bg-pink-700 text-white flex items-center justify-center transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#c9a96e] hover:bg-[#b8986e] text-white flex items-center justify-center transition-colors"
                     >
                       <Plus className="h-4 w-4" />
                     </button>
@@ -147,14 +147,14 @@ const AddToCartModal = ({ produto, isOpen, onClose }) => {
             </div>
           </div>
 
-          <div className="border-t pt-4">
+          <div className="border-t border-[#c9a96e]/20 pt-4">
             <button
               onClick={handleAddToCart}
               disabled={getTotalItems() === 0}
-              className="w-full bg-pink-600 hover:bg-pink-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+              className="w-full bg-[#c9a96e] hover:bg-[#b8986e] disabled:bg-gray-700 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
             >
               <ShoppingCart className="h-5 w-5" />
-              Adicionar ao Carrinho ({getTotalItems()} {getTotalItems() === 1 ? 'item' : 'itens'})
+              Adicionar à Seleção ({getTotalItems()} {getTotalItems() === 1 ? 'peça' : 'peças'})
             </button>
           </div>
         </div>

@@ -19,7 +19,7 @@ const Home = ({ produtos, onOpenCart, loading }) => {
         }}
       >
         {/* Overlay suave com gradiente */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
 
         {/* Header elements - Top right */}
         <div className="absolute top-6 right-6 flex items-center gap-4 z-20">
@@ -30,7 +30,7 @@ const Home = ({ produtos, onOpenCart, loading }) => {
           >
             <ShoppingCart className="h-6 w-6 text-white drop-shadow-lg" />
             {getCartCount() > 0 && (
-              <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-lg">
+              <span className="absolute -top-1 -right-1 bg-[#c9a96e] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-lg">
                 {getCartCount()}
               </span>
             )}
@@ -42,7 +42,7 @@ const Home = ({ produtos, onOpenCart, loading }) => {
             className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all duration-300 border border-white/20"
           >
             <User className="h-5 w-5" />
-            <span className="text-sm font-medium">Logar</span>
+            <span className="text-sm font-medium">Minha Conta</span>
           </Link>
         </div>
 
@@ -51,15 +51,15 @@ const Home = ({ produtos, onOpenCart, loading }) => {
           <div className="mb-12 md:mb-16">
             <img
               src="/logo.png"
-              alt="Libélula Village"
+              alt="Libélula Vittage"
               className="h-20 md:h-32 mx-auto drop-shadow-2xl"
               onError={(e) => {
                 e.target.style.display = 'none'
                 e.target.nextElementSibling.style.display = 'block'
               }}
             />
-            <h1 className="text-5xl md:text-7xl font-light tracking-wide mt-4 hidden" style={{ fontFamily: 'cursive' }}>
-              Libélula Village
+            <h1 className="text-5xl md:text-7xl font-light tracking-wide mt-4 hidden font-display">
+              Libélula Vittage
             </h1>
           </div>
 
@@ -67,22 +67,22 @@ const Home = ({ produtos, onOpenCart, loading }) => {
           <nav className="mb-8 md:mb-12">
             <ul className="flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base uppercase tracking-wider">
               <li>
-                <Link to="/catalogo?categoria=Sutiã" className="hover:text-pink-300 transition-colors duration-300 drop-shadow-md">
+                <Link to="/catalogo?categoria=Sutiã" className="hover:text-[#c9a96e] transition-colors duration-300 drop-shadow-md">
                   Sutiã
                 </Link>
               </li>
               <li>
-                <Link to="/catalogo?categoria=Calcinhas" className="hover:text-pink-300 transition-colors duration-300 drop-shadow-md">
+                <Link to="/catalogo?categoria=Calcinhas" className="hover:text-[#c9a96e] transition-colors duration-300 drop-shadow-md">
                   Calcinhas
                 </Link>
               </li>
               <li>
-                <Link to="/catalogo?categoria=Conjuntos" className="hover:text-pink-300 transition-colors duration-300 drop-shadow-md">
+                <Link to="/catalogo?categoria=Conjuntos" className="hover:text-[#c9a96e] transition-colors duration-300 drop-shadow-md">
                   Conjuntos
                 </Link>
               </li>
               <li>
-                <Link to="/catalogo" className="hover:text-pink-300 transition-colors duration-300 drop-shadow-md">
+                <Link to="/catalogo" className="hover:text-[#c9a96e] transition-colors duration-300 drop-shadow-md">
                   Lançamentos
                 </Link>
               </li>
@@ -94,7 +94,7 @@ const Home = ({ produtos, onOpenCart, loading }) => {
             <Link to="/catalogo">
               <Button
                 size="lg"
-                className="bg-white/90 hover:bg-white text-gray-800 text-base md:text-lg px-10 py-4 shadow-2xl backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105"
+                className="bg-transparent hover:bg-[#c9a96e] text-white hover:text-black text-base md:text-lg px-12 py-4 shadow-2xl backdrop-blur-sm border-2 border-[#c9a96e] transition-all duration-300 hover:scale-105 tracking-wider uppercase"
               >
                 Explorar Coleção
               </Button>
@@ -104,10 +104,10 @@ const Home = ({ produtos, onOpenCart, loading }) => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0a0a0a]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Produtos em Destaque
+          <h2 className="text-3xl font-bold text-center mb-12 text-white font-display">
+            Seleção Exclusiva
           </h2>
 
           {loading ? (
@@ -124,16 +124,16 @@ const Home = ({ produtos, onOpenCart, loading }) => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-600 text-lg">
-                Nenhum produto encontrado. Execute o scraper para carregar produtos.
+              <p className="text-gray-400 text-lg">
+                Nossa coleção está sendo atualizada. Volte em breve para descobrir peças exclusivas.
               </p>
             </div>
           )}
 
           <div className="text-center mt-12">
             <Link to="/catalogo">
-              <Button size="lg" className="bg-pink-600 hover:bg-pink-700">
-                Ver Todos os Produtos
+              <Button size="lg" className="bg-transparent border-2 border-[#c9a96e] text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black tracking-wider uppercase">
+                Descobrir a Coleção
               </Button>
             </Link>
           </div>
@@ -141,38 +141,38 @@ const Home = ({ produtos, onOpenCart, loading }) => {
       </section>
 
       {/* About Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#1a1a1a]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8 text-gray-800">
-              Por que Escolher Nossa Boutique?
+            <h2 className="text-3xl font-bold mb-8 text-white font-display">
+              A Arte da Elegância
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-6">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageCircle className="h-8 w-8 text-pink-600" />
+                <div className="w-16 h-16 bg-[#c9a96e]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="h-8 w-8 text-[#c9a96e]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Atendimento Personalizado</h3>
-                <p className="text-gray-600">
-                  Atendimento direto via WhatsApp para tirar todas suas dúvidas
+                <h3 className="text-xl font-semibold mb-3 text-white">Consultoria Exclusiva</h3>
+                <p className="text-gray-400">
+                  Assessoria personalizada para encontrar a peça perfeita para você
                 </p>
               </div>
               <div className="p-6">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">✨</span>
+                <div className="w-16 h-16 bg-[#c9a96e]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl text-[#c9a96e]">&#10022;</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Qualidade Premium</h3>
-                <p className="text-gray-600">
-                  Produtos selecionados com cuidado para garantir qualidade e conforto
+                <h3 className="text-xl font-semibold mb-3 text-white">Qualidade Premium</h3>
+                <p className="text-gray-400">
+                  Tecidos nobres e acabamento impecável em cada detalhe
                 </p>
               </div>
               <div className="p-6">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🚚</span>
+                <div className="w-16 h-16 bg-[#c9a96e]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl text-[#c9a96e]">&#9992;</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Entrega Rápida</h3>
-                <p className="text-gray-600">
-                  Enviamos para todo o Brasil com rapidez e segurança
+                <h3 className="text-xl font-semibold mb-3 text-white">Entrega Discreta</h3>
+                <p className="text-gray-400">
+                  Embalagem sofisticada e envio discreto para todo o Brasil
                 </p>
               </div>
             </div>
@@ -194,9 +194,9 @@ const ProductCard = memo(({ produto }) => {
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      <div className="bg-[#1a1a1a] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:border-[#c9a96e] border border-transparent">
         <Link to={`/produto/${produto.id}`}>
-          <div className="aspect-square overflow-hidden bg-gray-100">
+          <div className="aspect-square overflow-hidden bg-[#0a0a0a]">
             <img
               src={imagemPrincipal}
               alt={produto.nome}
@@ -211,19 +211,19 @@ const ProductCard = memo(({ produto }) => {
 
         <div className="p-4">
           <Link to={`/produto/${produto.id}`}>
-            <h3 className="font-semibold text-gray-800 mb-2 hover:text-pink-600 transition-colors line-clamp-2 break-words min-h-[3rem]">
+            <h3 className="font-semibold text-white mb-2 hover:text-[#c9a96e] transition-colors line-clamp-2 break-words min-h-[3rem]">
               {produto.nome}
             </h3>
           </Link>
 
           <div className="mb-3">
-            <span className="text-xl md:text-2xl font-bold text-pink-600">
+            <span className="text-xl md:text-2xl font-bold text-[#c9a96e]">
               R$ {produto.preco_venda?.toFixed(2)}
             </span>
           </div>
 
           <Button
-            className="w-full bg-pink-600 hover:bg-pink-700 text-sm"
+            className="w-full bg-[#c9a96e] hover:bg-[#b8986e] text-sm"
             onClick={() => setShowModal(true)}
           >
             <ShoppingCart className="h-4 w-4 mr-2" />

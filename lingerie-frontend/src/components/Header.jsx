@@ -17,7 +17,7 @@ const Header = ({ categorias, onOpenCart }) => {
   }
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+    <header className="bg-[#0a0a0a]/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-[#c9a96e]/20">
       <div className="container mx-auto px-4">
         {/* Top bar */}
         <div className="flex items-center justify-between py-3 md:py-4">
@@ -25,15 +25,15 @@ const Header = ({ categorias, onOpenCart }) => {
           <Link to="/" className="flex items-center">
             <img
               src="/logo02.png"
-              alt="Libélula Village"
+              alt="Libélula Vittage"
               className="h-10 md:h-14 transition-all duration-300"
               onError={(e) => {
                 e.target.style.display = 'none'
                 e.target.nextElementSibling.style.display = 'block'
               }}
             />
-            <span className="text-xl md:text-2xl font-light text-gray-800 hidden tracking-wide" style={{ fontFamily: 'cursive' }}>
-              Libélula Village
+            <span className="text-xl md:text-2xl font-light text-white hidden tracking-wide font-display">
+              Libélula Vittage
             </span>
           </Link>
 
@@ -42,14 +42,14 @@ const Header = ({ categorias, onOpenCart }) => {
             <div className="relative w-full">
               <input
                 type="text"
-                placeholder="Buscar produtos..."
+                placeholder="Buscar peça..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full px-4 py-2 border border-[#c9a96e]/30 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#c9a96e] bg-[#1a1a1a] text-white placeholder-gray-400"
               />
               <Button
                 type="submit"
-                className="absolute right-0 top-0 h-full px-4 bg-pink-600 hover:bg-pink-700 rounded-l-none"
+                className="absolute right-0 top-0 h-full px-4 bg-[#c9a96e] hover:bg-[#b8986e] rounded-l-none"
               >
                 <Search className="h-4 w-4" />
               </Button>
@@ -61,11 +61,11 @@ const Header = ({ categorias, onOpenCart }) => {
             {/* Cart Button */}
             <button
               onClick={onOpenCart}
-              className="relative p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className="relative p-2 hover:bg-[#1a1a1a] rounded-full transition-colors"
             >
-              <ShoppingCart className="h-6 w-6 text-gray-700" />
+              <ShoppingCart className="h-6 w-6 text-white" />
               {getCartCount() > 0 && (
-                <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-[#c9a96e] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                   {getCartCount()}
                 </span>
               )}
@@ -84,11 +84,11 @@ const Header = ({ categorias, onOpenCart }) => {
             {/* Cart Button Mobile */}
             <button
               onClick={onOpenCart}
-              className="relative p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className="relative p-2 hover:bg-[#1a1a1a] rounded-full transition-colors"
             >
-              <ShoppingCart className="h-6 w-6 text-gray-700" />
+              <ShoppingCart className="h-6 w-6 text-white" />
               {getCartCount() > 0 && (
-                <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-[#c9a96e] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                   {getCartCount()}
                 </span>
               )}
@@ -106,53 +106,53 @@ const Header = ({ categorias, onOpenCart }) => {
         </div>
 
         {/* Navigation - Desktop */}
-        <nav className="hidden md:block border-t border-gray-200">
+        <nav className="hidden md:block border-t border-[#c9a96e]/20">
           <div className="flex items-center justify-center py-4 gap-6 lg:gap-8 flex-wrap">
             <Link
               to="/"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
               Início
             </Link>
             <Link
               to="/catalogo"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
-              Catálogo
+              Coleção
             </Link>
             <Link
               to="/catalogo?categoria=Lingerie"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
               Lingerie
             </Link>
             <Link
               to="/catalogo?categoria=Conjuntos"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
               Conjuntos
             </Link>
             <Link
               to="/catalogo?categoria=Calcinhas"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
               Calcinhas
             </Link>
             <Link
               to="/catalogo?categoria=Cropped"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
               Cropped
             </Link>
             <Link
               to="/catalogo?categoria=Plus Size"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
               Plus Size
             </Link>
             <Link
               to="/catalogo?categoria=Body"
-              className="text-gray-700 hover:text-pink-600 font-medium transition-colors text-sm"
+              className="text-white hover:text-[#c9a96e] font-medium transition-colors text-sm"
             >
               Body
             </Link>
@@ -161,20 +161,20 @@ const Header = ({ categorias, onOpenCart }) => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
+          <div className="md:hidden border-t border-[#c9a96e]/20 py-4">
             {/* Mobile search */}
             <form onSubmit={handleSearch} className="mb-4">
               <div className="flex">
                 <input
                   type="text"
-                  placeholder="Buscar produtos..."
+                  placeholder="Buscar peça..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="flex-1 px-4 py-2 border border-[#c9a96e]/30 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#c9a96e] bg-[#1a1a1a] text-white placeholder-gray-400"
                 />
                 <Button
                   type="submit"
-                  className="px-4 bg-pink-600 hover:bg-pink-700 rounded-l-none"
+                  className="px-4 bg-[#c9a96e] hover:bg-[#b8986e] rounded-l-none"
                 >
                   <Search className="h-4 w-4" />
                 </Button>
@@ -187,7 +187,7 @@ const Header = ({ categorias, onOpenCart }) => {
                 <li>
                   <Link
                     to="/"
-                    className="block py-2 text-gray-700 hover:text-pink-600 font-medium"
+                    className="block py-2 text-white hover:text-[#c9a96e] font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Início
@@ -196,27 +196,27 @@ const Header = ({ categorias, onOpenCart }) => {
                 <li>
                   <Link
                     to="/catalogo"
-                    className="block py-2 text-gray-700 hover:text-pink-600 font-medium"
+                    className="block py-2 text-white hover:text-[#c9a96e] font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Todos os Produtos
+                    Coleção Completa
                   </Link>
                 </li>
                 {categorias.map((categoria) => (
                   <li key={categoria}>
                     <Link
                       to={`/catalogo?categoria=${encodeURIComponent(categoria)}`}
-                      className="block py-2 text-gray-700 hover:text-pink-600 font-medium"
+                      className="block py-2 text-white hover:text-[#c9a96e] font-medium"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {categoria}
                     </Link>
                   </li>
                 ))}
-                <li className="pt-2 border-t border-gray-200">
+                <li className="pt-2 border-t border-[#c9a96e]/20">
                   <Link
                     to="/admin"
-                    className="block py-2 text-gray-700 hover:text-pink-600 font-medium flex items-center"
+                    className="block py-2 text-white hover:text-[#c9a96e] font-medium flex items-center"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <Settings className="h-4 w-4 mr-2" />

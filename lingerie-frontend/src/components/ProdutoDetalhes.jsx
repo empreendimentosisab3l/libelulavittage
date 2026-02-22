@@ -91,7 +91,7 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
     })
 
     setSelectedVariacoes({})
-    alert('Produtos adicionados ao carrinho!')
+    alert('Peças adicionadas à sua seleção!')
   }
 
   const getTotalItems = () => {
@@ -100,10 +100,10 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a]">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Carregando produto...</p>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#c9a96e] mx-auto"></div>
+          <p className="mt-4 text-gray-400">Preparando sua experiência...</p>
         </div>
       </div>
     )
@@ -111,15 +111,15 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
 
   if (!produto) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 bg-[#0a0a0a] min-h-screen">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">
-            Produto não encontrado
+          <h1 className="text-2xl font-bold text-white mb-4 font-display">
+            Peça não encontrada
           </h1>
           <Link to="/catalogo">
             <Button>
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Voltar ao Catálogo
+              Voltar à Coleção
             </Button>
           </Link>
         </div>
@@ -132,22 +132,22 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
     : '/placeholder-product.jpg'
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-[#0a0a0a] min-h-screen">
       {/* Breadcrumb */}
       <nav className="mb-8">
         <Link
           to="/catalogo"
-          className="text-pink-600 hover:text-pink-700 flex items-center"
+          className="text-[#c9a96e] hover:text-[#b8986e] flex items-center"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
-          Voltar ao Catálogo
+          Voltar à Coleção
         </Link>
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Galeria de Imagens */}
         <div>
-          <div className="relative aspect-square mb-4 bg-gray-100 rounded-lg overflow-hidden">
+          <div className="relative aspect-square mb-4 bg-[#1a1a1a] rounded-lg overflow-hidden border border-[#c9a96e]/20">
             <img
               src={imagemPrincipal}
               alt={produto.nome}
@@ -198,8 +198,8 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
                   key={index}
                   onClick={() => setImagemAtual(index)}
                   className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${index === imagemAtual
-                      ? 'border-pink-600'
-                      : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-[#c9a96e]'
+                      : 'border-[#1a1a1a] hover:border-[#c9a96e]/50'
                     }`}
                 >
                   <img
@@ -219,12 +219,12 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
         {/* Informações do Produto */}
         <div>
           <div className="mb-4">
-            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+            <span className="text-sm text-gray-400 bg-[#1a1a1a] px-3 py-1 rounded-full border border-[#c9a96e]/20">
               {produto.categoria}
             </span>
           </div>
 
-          <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          <h1 className="text-3xl font-bold text-white mb-6 font-display">
             {produto.nome}
           </h1>
 
@@ -235,8 +235,8 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
               </div>
             )}
             <div className="flex items-baseline gap-2">
-              <span className="text-sm text-gray-600">Por:</span>
-              <span className="text-4xl font-bold text-pink-600">
+              <span className="text-sm text-gray-400">Por:</span>
+              <span className="text-4xl font-bold text-[#c9a96e]">
                 R$ {produto.preco_venda?.toFixed(2)}
               </span>
             </div>
@@ -244,22 +244,22 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
 
           {/* Seleção de Tamanhos e Quantidades */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4">Escolha as Variações</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Selecione seu Tamanho</h3>
 
             <div className="space-y-3">
               {getVariacoes().map((variacao) => (
                 <div
                   key={variacao.id}
-                  className="flex items-center justify-between p-4 border rounded-lg hover:border-pink-300 transition-colors bg-white"
+                  className="flex items-center justify-between p-4 border border-[#c9a96e]/20 rounded-lg hover:border-[#c9a96e] transition-colors bg-[#1a1a1a]"
                 >
                   <div className="flex-1">
-                    <div className="font-semibold text-gray-800">
+                    <div className="font-semibold text-white">
                       Tamanho {variacao.tamanho}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-400">
                       R$ {variacao.preco.toFixed(2)}
                     </div>
-                    <div className="text-xs text-gray-400 mt-1">
+                    <div className="text-xs text-gray-500 mt-1">
                       Código: {variacao.id}
                     </div>
                   </div>
@@ -267,19 +267,19 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => handleQuantityChange(variacao.id, variacao.tamanho, -1)}
-                      className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#0a0a0a] hover:bg-black flex items-center justify-center transition-colors border border-[#c9a96e]/30 text-white"
                       disabled={!selectedVariacoes[variacao.id]}
                     >
                       <Minus className="h-4 w-4" />
                     </button>
 
-                    <span className="w-8 text-center font-semibold">
+                    <span className="w-8 text-center font-semibold text-white">
                       {selectedVariacoes[variacao.id] || 0}
                     </span>
 
                     <button
                       onClick={() => handleQuantityChange(variacao.id, variacao.tamanho, 1)}
-                      className="w-8 h-8 rounded-full bg-pink-600 hover:bg-pink-700 text-white flex items-center justify-center transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#c9a96e] hover:bg-[#b8986e] text-white flex items-center justify-center transition-colors"
                     >
                       <Plus className="h-4 w-4" />
                     </button>
@@ -291,8 +291,8 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
 
           {produto.descricao && (
             <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-3">Descrição</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-lg font-semibold mb-3 text-white">Descrição</h3>
+              <p className="text-gray-400 leading-relaxed">
                 {produto.descricao}
               </p>
             </div>
@@ -302,30 +302,30 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
           <div className="space-y-4">
             <Button
               size="lg"
-              className="w-full bg-pink-600 hover:bg-pink-700 text-lg py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-[#c9a96e] hover:bg-[#b8986e] text-lg py-6 disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handleAddToCart}
               disabled={getTotalItems() === 0}
             >
               <ShoppingCart className="h-5 w-5 mr-3" />
               {getTotalItems() === 0
-                ? 'Selecione ao menos um tamanho'
-                : `Adicionar ao Carrinho (${getTotalItems()} ${getTotalItems() === 1 ? 'item' : 'itens'})`
+                ? 'Escolha seu tamanho para continuar'
+                : `Adicionar à Seleção (${getTotalItems()} ${getTotalItems() === 1 ? 'peça' : 'peças'})`
               }
             </Button>
 
             <div className="text-center text-sm text-gray-500">
-              Os produtos serão adicionados ao carrinho. Finalize a compra via WhatsApp.
+              Suas peças serão reservadas. Finalize via WhatsApp.
             </div>
           </div>
 
           {/* Informações Adicionais */}
-          <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-            <h3 className="font-semibold mb-3">Informações de Compra</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li>• Atendimento personalizado via WhatsApp</li>
-              <li>• Enviamos para todo o Brasil</li>
-              <li>• Produtos de alta qualidade</li>
-              <li>• Embalagem discreta</li>
+          <div className="mt-8 p-6 bg-[#1a1a1a] rounded-lg border border-[#c9a96e]/20">
+            <h3 className="font-semibold mb-3 text-white">Benefícios Exclusivos</h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>• Consultoria exclusiva via WhatsApp</li>
+              <li>• Entrega em todo o Brasil</li>
+              <li>• Qualidade premium garantida</li>
+              <li>• Embalagem sofisticada e discreta</li>
             </ul>
           </div>
         </div>

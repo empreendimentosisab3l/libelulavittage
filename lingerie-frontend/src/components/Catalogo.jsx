@@ -90,11 +90,11 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-[#0a0a0a] min-h-screen">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-          Catálogo de Produtos
+        <h1 className="text-2xl md:text-3xl font-bold text-white font-display">
+          Nossa Coleção
         </h1>
 
         <Button
@@ -110,12 +110,12 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Sidebar - Filtros */}
         <aside className={`w-full lg:w-64 flex-shrink-0 ${showFilters ? 'block' : 'hidden lg:block'}`}>
-          <div className="bg-white p-4 md:p-6 rounded-lg shadow-md sticky top-20">
+          <div className="bg-[#1a1a1a] p-4 md:p-6 rounded-lg shadow-md sticky top-20 border border-[#c9a96e]/20">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold">Filtros</h3>
+              <h3 className="text-lg font-semibold text-white">Filtros</h3>
               <button
                 onClick={() => setShowFilters(false)}
-                className="lg:hidden text-gray-500 hover:text-gray-700"
+                className="lg:hidden text-gray-400 hover:text-white"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -123,28 +123,28 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
 
             {/* Filtro por categoria */}
             <div className="mb-6">
-              <h4 className="font-medium mb-3 text-sm uppercase text-gray-700">Categoria</h4>
+              <h4 className="font-medium mb-3 text-sm uppercase text-[#c9a96e]">Categoria</h4>
               <div className="space-y-2 max-h-64 overflow-y-auto">
-                <label className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors">
+                <label className="flex items-center cursor-pointer hover:bg-[#0a0a0a] p-2 rounded transition-colors text-white">
                   <input
                     type="radio"
                     name="categoria"
                     value=""
                     checked={filtros.categoria === ''}
                     onChange={(e) => aplicarFiltro('categoria', e.target.value)}
-                    className="mr-3 text-pink-600 focus:ring-pink-500"
+                    className="mr-3 text-[#c9a96e] focus:ring-[#c9a96e] bg-[#0a0a0a] border-[#c9a96e]/30"
                   />
                   <span className="text-sm">Todas as Categorias</span>
                 </label>
                 {categorias.map((categoria) => (
-                  <label key={categoria} className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors">
+                  <label key={categoria} className="flex items-center cursor-pointer hover:bg-[#0a0a0a] p-2 rounded transition-colors text-white">
                     <input
                       type="radio"
                       name="categoria"
                       value={categoria}
                       checked={filtros.categoria === categoria}
                       onChange={(e) => aplicarFiltro('categoria', e.target.value)}
-                      className="mr-3 text-pink-600 focus:ring-pink-500"
+                      className="mr-3 text-[#c9a96e] focus:ring-[#c9a96e] bg-[#0a0a0a] border-[#c9a96e]/30"
                     />
                     <span className="text-sm">{categoria}</span>
                   </label>
@@ -154,13 +154,13 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
 
             {/* Busca */}
             <div className="mb-6">
-              <h4 className="font-medium mb-3 text-sm uppercase text-gray-700">Buscar</h4>
+              <h4 className="font-medium mb-3 text-sm uppercase text-[#c9a96e]">Encontrar</h4>
               <input
                 type="text"
-                placeholder="Nome do produto..."
+                placeholder="Buscar peça..."
                 value={filtros.busca}
                 onChange={(e) => aplicarFiltro('busca', e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full px-3 py-2 text-sm border border-[#c9a96e]/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c9a96e] bg-[#0a0a0a] text-white placeholder-gray-500"
               />
             </div>
 
@@ -180,8 +180,8 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
         <main className="flex-1 min-w-0">
           {loading ? (
             <>
-              <div className="mb-4 text-sm text-gray-600 px-1">
-                Carregando produtos...
+              <div className="mb-4 text-sm text-gray-400 px-1">
+                Preparando sua experiência...
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6">
                 {[...Array(PER_PAGE)].map((_, i) => (
@@ -191,7 +191,7 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
             </>
           ) : produtos.length > 0 ? (
             <>
-              <div className="mb-4 text-sm text-gray-600 px-1">
+              <div className="mb-4 text-sm text-gray-400 px-1">
                 {produtos.length} de {totalProdutos} produto{totalProdutos !== 1 ? 's' : ''}
               </div>
 
@@ -206,9 +206,9 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
                   <Button
                     onClick={carregarMais}
                     disabled={loadingMore}
-                    className="bg-pink-600 hover:bg-pink-700 px-8"
+                    className="bg-[#c9a96e] hover:bg-[#b8986e] px-8"
                   >
-                    {loadingMore ? 'Carregando...' : 'Carregar Mais Produtos'}
+                    {loadingMore ? 'Carregando...' : 'Descobrir Mais Peças'}
                   </Button>
                   <p className="text-sm text-gray-500 mt-2">
                     Mostrando {produtos.length} de {totalProdutos} produtos
@@ -218,8 +218,8 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
             </>
           ) : (
             <div className="text-center py-12 px-4">
-              <p className="text-gray-600 text-base md:text-lg mb-4">
-                Nenhum produto encontrado com os filtros aplicados.
+              <p className="text-gray-400 text-base md:text-lg mb-4">
+                Nenhuma peça encontrada. Experimente ajustar os filtros.
               </p>
               <Button onClick={limparFiltros}>
                 Limpar Filtros
@@ -243,9 +243,9 @@ const ProductCard = memo(({ produto }) => {
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      <div className="bg-[#1a1a1a] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all border border-transparent hover:border-[#c9a96e]">
         <Link to={`/produto/${produto.id}`}>
-          <div className="aspect-square overflow-hidden bg-gray-100">
+          <div className="aspect-square overflow-hidden bg-[#0a0a0a]">
             <img
               src={imagemPrincipal}
               alt={produto.nome}
@@ -260,25 +260,25 @@ const ProductCard = memo(({ produto }) => {
 
         <div className="p-4">
           <Link to={`/produto/${produto.id}`}>
-            <h3 className="font-semibold text-gray-800 mb-2 hover:text-pink-600 transition-colors line-clamp-2 break-words min-h-[3rem]">
+            <h3 className="font-semibold text-white mb-2 hover:text-[#c9a96e] transition-colors line-clamp-2 break-words min-h-[3rem]">
               {produto.nome}
             </h3>
           </Link>
 
           <div className="mb-3">
-            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded inline-block break-words max-w-full">
+            <span className="text-xs text-gray-400 bg-[#0a0a0a] px-2 py-1 rounded inline-block break-words max-w-full border border-[#c9a96e]/20">
               {produto.categoria}
             </span>
           </div>
 
           <div className="mb-3">
-            <span className="text-xl md:text-2xl font-bold text-pink-600">
+            <span className="text-xl md:text-2xl font-bold text-[#c9a96e]">
               R$ {produto.preco_venda?.toFixed(2)}
             </span>
           </div>
 
           <Button
-            className="w-full bg-pink-600 hover:bg-pink-700 text-sm"
+            className="w-full bg-[#c9a96e] hover:bg-[#b8986e] text-sm"
             onClick={() => setShowModal(true)}
           >
             <ShoppingCart className="h-4 w-4 mr-2" />

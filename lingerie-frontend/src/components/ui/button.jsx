@@ -15,9 +15,9 @@ export const Button = ({
   }
 
   const variantClasses = {
-    default: 'bg-pink-600 hover:bg-pink-700 text-white',
-    outline: 'border-2 border-pink-600 text-pink-600 hover:bg-pink-50',
-    ghost: 'hover:bg-gray-100 text-gray-700'
+    default: 'bg-[#c9a96e] hover:bg-[#b8986e] text-black font-semibold',
+    outline: 'border-2 border-[#c9a96e] text-[#c9a96e] hover:bg-[#c9a96e]/10',
+    ghost: 'hover:bg-[#1a1a1a] text-white'
   }
 
   return (
@@ -26,7 +26,7 @@ export const Button = ({
         inline-flex items-center justify-center
         font-medium rounded-lg
         transition-colors duration-200
-        focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2
+        focus:outline-none focus:ring-2 focus:ring-[#c9a96e] focus:ring-offset-2 focus:ring-offset-[#0a0a0a]
         disabled:opacity-50 disabled:cursor-not-allowed
         ${sizeClasses[size]}
         ${variantClasses[variant]}

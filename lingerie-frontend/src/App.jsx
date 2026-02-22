@@ -59,7 +59,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-[#0a0a0a]">
           <Routes>
             <Route
               path="/"

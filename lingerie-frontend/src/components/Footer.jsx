@@ -2,22 +2,22 @@ import { MessageCircle, Mail, MapPin } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-12">
+    <footer className="bg-[#0a0a0a] text-white py-12 border-t border-[#c9a96e]/20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Sobre */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Boutique Lingerie</h3>
-            <p className="text-gray-300 mb-4">
-              Sua boutique online especializada em lingerie de qualidade. 
-              Oferecemos produtos cuidadosamente selecionados com atendimento personalizado.
+            <h3 className="text-xl font-bold mb-4 font-display text-[#c9a96e]">Libélula Vittage</h3>
+            <p className="text-gray-400 mb-4">
+              Lingerie de luxo para mulheres que celebram sua feminilidade.
+              Peças exclusivas selecionadas com requinte e sofisticação.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://wa.me/5511999999999" 
-                target="_blank" 
+              <a
+                href="https://wa.me/5511999999999"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-400 hover:text-green-300 transition-colors"
+                className="text-[#c9a96e] hover:text-[#b8986e] transition-colors"
               >
                 <MessageCircle className="h-6 w-6" />
               </a>
@@ -26,25 +26,25 @@ const Footer = () => {
 
           {/* Links Rápidos */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Links Rápidos</h3>
+            <h3 className="text-xl font-bold mb-4 font-display">Navegue</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/" className="text-gray-400 hover:text-[#c9a96e] transition-colors">
                   Início
                 </a>
               </li>
               <li>
-                <a href="/catalogo" className="text-gray-300 hover:text-white transition-colors">
-                  Catálogo
+                <a href="/catalogo" className="text-gray-400 hover:text-[#c9a96e] transition-colors">
+                  Coleção
                 </a>
               </li>
               <li>
-                <a href="/catalogo?categoria=Lingerie" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/catalogo?categoria=Lingerie" className="text-gray-400 hover:text-[#c9a96e] transition-colors">
                   Lingerie
                 </a>
               </li>
               <li>
-                <a href="/catalogo?categoria=Conjuntos" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/catalogo?categoria=Conjuntos" className="text-gray-400 hover:text-[#c9a96e] transition-colors">
                   Conjuntos
                 </a>
               </li>
@@ -53,27 +53,27 @@ const Footer = () => {
 
           {/* Contato */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contato</h3>
+            <h3 className="text-xl font-bold mb-4 font-display">Fale Conosco</h3>
             <div className="space-y-3">
               <div className="flex items-center">
-                <MessageCircle className="h-5 w-5 mr-3 text-green-400" />
-                <span className="text-gray-300">WhatsApp: (11) 99999-9999</span>
+                <MessageCircle className="h-5 w-5 mr-3 text-[#c9a96e]" />
+                <span className="text-gray-400">WhatsApp: (11) 99999-9999</span>
               </div>
               <div className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-blue-400" />
-                <span className="text-gray-300">contato@boutiquelingerie.com</span>
+                <Mail className="h-5 w-5 mr-3 text-[#c9a96e]" />
+                <span className="text-gray-400">contato@libelulavittage.com</span>
               </div>
               <div className="flex items-center">
-                <MapPin className="h-5 w-5 mr-3 text-red-400" />
-                <span className="text-gray-300">Enviamos para todo o Brasil</span>
+                <MapPin className="h-5 w-5 mr-3 text-[#c9a96e]" />
+                <span className="text-gray-400">Enviamos para todo o Brasil</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 Boutique Lingerie. Todos os direitos reservados.
+        <div className="border-t border-[#c9a96e]/20 mt-8 pt-8 text-center">
+          <p className="text-gray-500">
+            © 2024 Libélula Vittage. Todos os direitos reservados.
           </p>
         </div>
       </div>
