@@ -46,7 +46,11 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
 db.init_app(app)
 with app.app_context():
     db.create_all()
-    print("[STARTUP] Banco inicializado com sucesso.")
+    # Dispose connections created during startup to avoid forked-connection issues with gunicorn
+    # Each gunicorn worker will create fresh connections on first request
+    db.session.remove()
+    db.engine.dispose()
+    print("[STARTUP] Banco inicializado com sucesso. Pool disposed for clean worker start.")
 
 @app.route('/api/health')
 def health():
