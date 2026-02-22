@@ -1,11 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import deferred
 from datetime import datetime
 
 db = SQLAlchemy()
 
 class Produto(db.Model):
     __tablename__ = 'produtos'
-    
+
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(255), nullable=False)
     preco_original = db.Column(db.Float, nullable=False)
@@ -18,12 +19,18 @@ class Produto(db.Model):
     data_hash = db.Column(db.String(32), nullable=True) # Hash MD5 para controle de alterações
     link_whatsapp = db.Column(db.String(1000))  # Link do WhatsApp
     url_original = db.Column(db.String(500))
-    destaque = db.Column(db.Boolean, default=False) # Produto em destaque no fornecedor
+    # Deferred: não carrega no SELECT automático (evita erro se coluna não existir ainda)
+    destaque = deferred(db.Column(db.Boolean, default=False))
     ativo = db.Column(db.Boolean, default=True)
     data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
     data_atualizacao = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
+
     def to_dict(self):
+        # Acesso seguro ao destaque (pode não existir no banco ainda)
+        try:
+            destaque_val = self.destaque or False
+        except Exception:
+            destaque_val = False
         return {
             'id': self.id,
             'nome': self.nome,
@@ -36,7 +43,7 @@ class Produto(db.Model):
             'cores': self.cores,
             'link_whatsapp': self.link_whatsapp,
             'url_original': self.url_original,
-            'destaque': self.destaque or False,
+            'destaque': destaque_val,
             'ativo': self.ativo,
             'data_criacao': self.data_criacao.isoformat() if self.data_criacao else None,
             'data_atualizacao': self.data_atualizacao.isoformat() if self.data_atualizacao else None

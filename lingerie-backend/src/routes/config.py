@@ -10,12 +10,13 @@ def run_migrations():
     results = []
     migrations = [
         'ALTER TABLE produtos ALTER COLUMN tamanhos TYPE TEXT',
-        'ALTER TABLE produtos ADD COLUMN destaque BOOLEAN DEFAULT FALSE',
+        'ALTER TABLE produtos ADD COLUMN IF NOT EXISTS destaque BOOLEAN',
+        'ALTER TABLE produtos ALTER COLUMN destaque SET DEFAULT FALSE',
+        'UPDATE produtos SET destaque = FALSE WHERE destaque IS NULL',
     ]
     for sql in migrations:
         try:
-            # Desabilitar statement_timeout para migrações (PostgreSQL impõe timeout curto)
-            db.session.execute(db.text("SET LOCAL statement_timeout = '60000'"))
+            db.session.execute(db.text("SET statement_timeout = '0'"))
             db.session.execute(db.text(sql))
             db.session.commit()
             results.append({'sql': sql, 'status': 'ok'})

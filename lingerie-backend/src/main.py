@@ -47,15 +47,21 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
     # Migrações de banco (idempotentes — ignoram erro se já existir)
+    # Nota: dividimos ADD COLUMN e SET DEFAULT em operações separadas
+    # para evitar table rewrite e respeitar o statement_timeout do PostgreSQL
     migrations = [
         'ALTER TABLE produtos ALTER COLUMN tamanhos TYPE TEXT',
-        'ALTER TABLE produtos ADD COLUMN destaque BOOLEAN DEFAULT FALSE',
+        # ADD COLUMN sem DEFAULT é instantâneo (não reescreve tabela)
+        'ALTER TABLE produtos ADD COLUMN IF NOT EXISTS destaque BOOLEAN',
+        # SET DEFAULT separado (também instantâneo)
+        'ALTER TABLE produtos ALTER COLUMN destaque SET DEFAULT FALSE',
+        # UPDATE para preencher NULLs existentes (rápido, sem lock pesado)
+        'UPDATE produtos SET destaque = FALSE WHERE destaque IS NULL',
     ]
     for sql in migrations:
         try:
             print(f"[MIGRATION] Executando: {sql}")
-            # Desabilitar statement_timeout para migrações (o Render/PostgreSQL impõe timeout curto)
-            db.session.execute(db.text("SET LOCAL statement_timeout = '60000'"))
+            db.session.execute(db.text("SET statement_timeout = '0'"))
             db.session.execute(db.text(sql))
             db.session.commit()
             print(f"[MIGRATION] OK: {sql}")
