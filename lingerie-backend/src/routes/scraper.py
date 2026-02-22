@@ -349,16 +349,9 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                             prod.link_whatsapp = link_whatsapp
                             prod.tamanhos = tamanhos_str
                             prod.cores = cores_str
+                            prod.destaque = destaque
                             prod.data_hash = new_hash
                             prod.data_atualizacao = datetime.utcnow()
-                            # Setar destaque via raw SQL (coluna pode não existir)
-                            try:
-                                db.session.execute(
-                                    db.text("UPDATE produtos SET destaque = :d WHERE id = :id"),
-                                    {'d': destaque, 'id': prod.id}
-                                )
-                            except Exception:
-                                db.session.rollback()
                             results['atualizados'] += 1
                         else:
                             new_prod = Produto(
@@ -366,7 +359,7 @@ def extrair_dados_sitemap(apenas_atualizacao=False):
                                 categoria=categoria, descricao=f"{nome} - {categoria}",
                                 imagens=imagens_str, link_whatsapp=link_whatsapp,
                                 url_original=str(pid), tamanhos=tamanhos_str, cores=cores_str,
-                                data_hash=new_hash
+                                destaque=destaque, data_hash=new_hash
                             )
                             db.session.add(new_prod)
                             results['criados'] += 1

@@ -46,16 +46,7 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
 db.init_app(app)
 with app.app_context():
     db.create_all()
-    # Verificar se coluna destaque existe (sem tentar criá-la — isso é feito via /api/config/run-migrations)
-    from src.models import produto as produto_module
-    try:
-        db.session.execute(db.text("SELECT destaque FROM produtos LIMIT 0"))
-        produto_module.DESTAQUE_COLUMN_EXISTS = True
-        print("[STARTUP] Coluna destaque existe. Ordenação por destaque ATIVADA.")
-    except Exception:
-        db.session.rollback()
-        produto_module.DESTAQUE_COLUMN_EXISTS = False
-        print("[STARTUP] Coluna destaque NÃO existe. Use POST /api/config/run-migrations para criá-la.")
+    print("[STARTUP] Banco inicializado com sucesso.")
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

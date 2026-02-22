@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
-from src.models.produto import db, Produto, Configuracao, DESTAQUE_COLUMN_EXISTS
-from sqlalchemy import text
+from src.models.produto import db, Produto, Configuracao
 import urllib.parse
 
 produtos_bp = Blueprint('produtos', __name__)
@@ -41,11 +40,8 @@ def listar_produtos():
         if busca:
             query = query.filter(Produto.nome.ilike(f'%{busca}%'))
 
-        # Ordenar: destaques primeiro (se coluna existir), depois por ID decrescente
-        if DESTAQUE_COLUMN_EXISTS:
-            query = query.order_by(text('destaque DESC NULLS LAST'), Produto.id.desc())
-        else:
-            query = query.order_by(Produto.id.desc())
+        # Ordenar: destaques primeiro, depois por ID decrescente (mais recentes)
+        query = query.order_by(Produto.destaque.desc(), Produto.id.desc())
 
         produtos_paginados = query.paginate(
             page=page,
