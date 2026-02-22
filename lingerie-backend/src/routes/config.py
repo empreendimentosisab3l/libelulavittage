@@ -38,6 +38,20 @@ def run_migrations():
         'destaque_column_exists': destaque_exists
     })
 
+@config_bp.route('/config/reset-hashes', methods=['POST'])
+def reset_hashes():
+    """Limpa todos os hashes para forçar re-scrape completo"""
+    try:
+        result = db.session.execute(db.text("UPDATE produtos SET data_hash = NULL"))
+        db.session.commit()
+        return jsonify({
+            'mensagem': 'Hashes limpos com sucesso',
+            'produtos_afetados': result.rowcount
+        })
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'erro': str(e)}), 500
+
 @config_bp.route('/config/setup', methods=['POST'])
 def setup_config():
     """Configura o banco de dados com WhatsApp e margem de lucro"""
