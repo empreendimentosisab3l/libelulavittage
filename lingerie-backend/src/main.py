@@ -53,10 +53,13 @@ with app.app_context():
     ]
     for sql in migrations:
         try:
+            print(f"[MIGRATION] Executando: {sql}")
             db.session.execute(db.text(sql))
             db.session.commit()
-        except Exception:
+            print(f"[MIGRATION] OK: {sql}")
+        except Exception as e:
             db.session.rollback()
+            print(f"[MIGRATION] Skip/Erro: {sql} -> {e}")
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

@@ -41,17 +41,32 @@ def listar_produtos():
             query = query.filter(Produto.nome.ilike(f'%{busca}%'))
 
         # Ordenar: destaques primeiro, depois por ID decrescente (mais recentes)
-        query = query.order_by(Produto.destaque.desc(), Produto.id.desc())
+        # Fallback seguro caso a coluna destaque ainda não exista no banco
+        try:
+            query_with_destaque = query.order_by(Produto.destaque.desc(), Produto.id.desc())
+            produtos_paginados = query_with_destaque.paginate(
+                page=page,
+                per_page=per_page,
+                error_out=False
+            )
+            # Força execução para verificar se coluna existe
+            _ = produtos_paginados.items
+        except Exception:
+            db.session.rollback()
+            query = Produto.query.filter_by(ativo=True)
+            if categoria:
+                query = query.filter(Produto.categoria.ilike(f'%{categoria}%'))
+            if busca:
+                query = query.filter(Produto.nome.ilike(f'%{busca}%'))
+            query = query.order_by(Produto.id.desc())
+            produtos_paginados = query.paginate(
+                page=page,
+                per_page=per_page,
+                error_out=False
+            )
 
         # Buscar número do WhatsApp uma única vez (resolve N+1 query)
         numero_whatsapp = get_configuracao('numero_whatsapp', '5511999999999')
-
-        # Paginação
-        produtos_paginados = query.paginate(
-            page=page,
-            per_page=per_page,
-            error_out=False
-        )
 
         produtos_dict = []
         for produto in produtos_paginados.items:

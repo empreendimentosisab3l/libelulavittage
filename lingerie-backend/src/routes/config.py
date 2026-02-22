@@ -4,6 +4,37 @@ import urllib.parse
 
 config_bp = Blueprint('config', __name__)
 
+@config_bp.route('/config/run-migrations', methods=['POST'])
+def run_migrations():
+    """Executa migrações de banco de dados manualmente"""
+    results = []
+    migrations = [
+        'ALTER TABLE produtos ALTER COLUMN tamanhos TYPE TEXT',
+        'ALTER TABLE produtos ADD COLUMN destaque BOOLEAN DEFAULT FALSE',
+    ]
+    for sql in migrations:
+        try:
+            db.session.execute(db.text(sql))
+            db.session.commit()
+            results.append({'sql': sql, 'status': 'ok'})
+        except Exception as e:
+            db.session.rollback()
+            results.append({'sql': sql, 'status': 'skipped', 'reason': str(e)})
+
+    # Verificar se coluna destaque existe agora
+    try:
+        db.session.execute(db.text("SELECT destaque FROM produtos LIMIT 1"))
+        destaque_exists = True
+    except Exception:
+        db.session.rollback()
+        destaque_exists = False
+
+    return jsonify({
+        'mensagem': 'Migrações executadas',
+        'results': results,
+        'destaque_column_exists': destaque_exists
+    })
+
 @config_bp.route('/config/setup', methods=['POST'])
 def setup_config():
     """Configura o banco de dados com WhatsApp e margem de lucro"""
