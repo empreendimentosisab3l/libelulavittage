@@ -3,7 +3,7 @@ import sys
 # DON'T CHANGE THIS !!!
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
 from src.models.produto import db
 from src.routes.produtos import produtos_bp
@@ -39,14 +39,36 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     'pool_recycle': 280,      # Reciclar conexões a cada ~5 min (antes do timeout do Render)
     'pool_pre_ping': True,    # Verificar se a conexão está viva antes de usar
-    'pool_size': 5,           # Tamanho do pool de conexões
-    'max_overflow': 10        # Conexões extras permitidas
+    'pool_size': 2,           # Pool pequeno para free tier (512MB)
+    'max_overflow': 3         # Máximo de 5 conexões totais
 }
 
 db.init_app(app)
 with app.app_context():
     db.create_all()
     print("[STARTUP] Banco inicializado com sucesso.")
+
+@app.route('/api/health')
+def health():
+    """Debug endpoint to test DB connection"""
+    import traceback
+    try:
+        result = db.session.execute(db.text('SELECT 1'))
+        row = result.fetchone()
+        # Also test the produtos table
+        count = db.session.execute(db.text('SELECT COUNT(*) FROM produtos')).fetchone()
+        # Test destaque column
+        destaque_count = db.session.execute(db.text('SELECT COUNT(*) FROM produtos WHERE destaque = true')).fetchone()
+        return jsonify({
+            'status': 'ok',
+            'db_test': row[0] if row else None,
+            'total_produtos': count[0] if count else 0,
+            'destaque_count': destaque_count[0] if destaque_count else 0,
+            'database_url': 'postgresql' if 'postgresql' in (app.config.get('SQLALCHEMY_DATABASE_URI') or '') else 'sqlite'
+        })
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({'status': 'error', 'erro': str(e)}), 500
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

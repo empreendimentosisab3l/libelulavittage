@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from src.models.produto import db, Produto, Configuracao
 import urllib.parse
+import traceback
 
 produtos_bp = Blueprint('produtos', __name__)
 
@@ -67,6 +68,7 @@ def listar_produtos():
         })
 
     except Exception as e:
+        traceback.print_exc()
         return jsonify({'erro': str(e)}), 500
 
 @produtos_bp.route('/produtos/<int:produto_id>', methods=['GET'])
@@ -80,6 +82,7 @@ def obter_produto(produto_id):
         return jsonify(produto_dict)
     
     except Exception as e:
+        traceback.print_exc()
         return jsonify({'erro': str(e)}), 500
 
 @produtos_bp.route('/categorias', methods=['GET'])
@@ -92,6 +95,7 @@ def listar_categorias():
         return jsonify({'categorias': categorias_list})
     
     except Exception as e:
+        traceback.print_exc()
         return jsonify({'erro': str(e)}), 500
 
 @produtos_bp.route('/configuracoes', methods=['GET'])
