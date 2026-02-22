@@ -45,31 +45,34 @@ engine_options = {
     'max_overflow': 3
 }
 
-# Fix: Render PostgreSQL has a very short statement_timeout that kills queries
-# Disable it completely (0 = no limit); gunicorn --timeout 120 handles runaway queries
+# Fix: Render PostgreSQL has a very short default statement_timeout that kills queries
+# Set to 30s (enough for normal queries, fails fast if stuck)
 if database_url:
     engine_options['connect_args'] = {
         'connect_timeout': 10,
-        'options': '-c statement_timeout=0'
+        'options': '-c statement_timeout=30000'
     }
 
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = engine_options
 
 db.init_app(app)
 
-# Event listener: disable statement_timeout on every new connection (belt + suspenders)
+# Event listener: override statement_timeout on every new connection
 # Uses Engine CLASS (not db.engine instance) to avoid "outside application context" error
 @event.listens_for(Engine, 'connect')
 def set_statement_timeout(dbapi_conn, connection_record):
     cursor = dbapi_conn.cursor()
-    cursor.execute("SET statement_timeout = '0'")
+    cursor.execute("SET statement_timeout = '30000'")
     cursor.close()
 
 with app.app_context():
     db.create_all()
-    db.session.remove()
-    db.engine.dispose()
     print("[STARTUP] Banco inicializado com sucesso.")
+
+@app.route('/api/ping')
+def ping():
+    """Lightweight endpoint - no DB, just checks if worker is alive"""
+    return jsonify({'status': 'pong'})
 
 @app.route('/api/health')
 def health():
