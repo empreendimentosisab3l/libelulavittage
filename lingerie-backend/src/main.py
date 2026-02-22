@@ -36,12 +36,21 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Pool recycling para evitar conexões mortas com PostgreSQL (psycopg2 OperationalError)
-app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+engine_options = {
     'pool_recycle': 280,      # Reciclar conexões a cada ~5 min (antes do timeout do Render)
     'pool_pre_ping': True,    # Verificar se a conexão está viva antes de usar
     'pool_size': 2,           # Pool pequeno para free tier (512MB)
     'max_overflow': 3         # Máximo de 5 conexões totais
 }
+
+# Fix: Render PostgreSQL has a very short statement_timeout that kills queries
+# Set options=-c statement_timeout=30000 (30s) via connect_args for psycopg2
+if database_url:
+    engine_options['connect_args'] = {
+        'options': '-c statement_timeout=30000'
+    }
+
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = engine_options
 
 db.init_app(app)
 with app.app_context():
