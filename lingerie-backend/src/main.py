@@ -54,6 +54,8 @@ with app.app_context():
     for sql in migrations:
         try:
             print(f"[MIGRATION] Executando: {sql}")
+            # Desabilitar statement_timeout para migrações (o Render/PostgreSQL impõe timeout curto)
+            db.session.execute(db.text("SET LOCAL statement_timeout = '60000'"))
             db.session.execute(db.text(sql))
             db.session.commit()
             print(f"[MIGRATION] OK: {sql}")

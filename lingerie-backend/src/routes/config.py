@@ -14,6 +14,8 @@ def run_migrations():
     ]
     for sql in migrations:
         try:
+            # Desabilitar statement_timeout para migrações (PostgreSQL impõe timeout curto)
+            db.session.execute(db.text("SET LOCAL statement_timeout = '60000'"))
             db.session.execute(db.text(sql))
             db.session.commit()
             results.append({'sql': sql, 'status': 'ok'})
