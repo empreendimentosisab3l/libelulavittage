@@ -6,6 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
 from sqlalchemy import event
+from sqlalchemy.engine import Engine
 from src.models.produto import db
 from src.routes.produtos import produtos_bp
 from src.routes.scraper import scraper_bp
@@ -45,25 +46,24 @@ engine_options = {
 }
 
 # Fix: Render PostgreSQL has a very short statement_timeout that kills queries
-# Also set connect_timeout to avoid hanging on connection establishment
+# Disable it completely (0 = no limit); gunicorn --timeout 120 handles runaway queries
 if database_url:
     engine_options['connect_args'] = {
         'connect_timeout': 10,
-        'options': '-c statement_timeout=60000 -c idle_in_transaction_session_timeout=30000'
+        'options': '-c statement_timeout=0'
     }
 
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = engine_options
 
 db.init_app(app)
 
-# Event listener: SET statement_timeout on every new connection (belt + suspenders)
-if database_url:
-    @event.listens_for(db.engine, 'connect')
-    def set_statement_timeout(dbapi_conn, connection_record):
-        cursor = dbapi_conn.cursor()
-        cursor.execute("SET statement_timeout = '60000'")
-        cursor.execute("SET idle_in_transaction_session_timeout = '30000'")
-        cursor.close()
+# Event listener: disable statement_timeout on every new connection (belt + suspenders)
+# Uses Engine CLASS (not db.engine instance) to avoid "outside application context" error
+@event.listens_for(Engine, 'connect')
+def set_statement_timeout(dbapi_conn, connection_record):
+    cursor = dbapi_conn.cursor()
+    cursor.execute("SET statement_timeout = '0'")
+    cursor.close()
 
 with app.app_context():
     db.create_all()
