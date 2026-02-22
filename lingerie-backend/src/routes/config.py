@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify
+from src.models import produto as produto_module
 from src.models.produto import db, Configuracao, Produto
 import urllib.parse
 
@@ -28,6 +29,8 @@ def run_migrations():
     try:
         db.session.execute(db.text("SELECT destaque FROM produtos LIMIT 1"))
         destaque_exists = True
+        # Ativar flag global para que queries usem ORDER BY destaque
+        produto_module.DESTAQUE_COLUMN_EXISTS = True
     except Exception:
         db.session.rollback()
         destaque_exists = False

@@ -1,8 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import deferred
 from datetime import datetime
 
 db = SQLAlchemy()
+
+# Flag global: indica se a coluna destaque existe no banco
+# Será setada para True pelo endpoint /api/config/run-migrations
+DESTAQUE_COLUMN_EXISTS = False
 
 class Produto(db.Model):
     __tablename__ = 'produtos'
@@ -19,18 +22,14 @@ class Produto(db.Model):
     data_hash = db.Column(db.String(32), nullable=True) # Hash MD5 para controle de alterações
     link_whatsapp = db.Column(db.String(1000))  # Link do WhatsApp
     url_original = db.Column(db.String(500))
-    # Deferred: não carrega no SELECT automático (evita erro se coluna não existir ainda)
-    destaque = deferred(db.Column(db.Boolean, default=False))
+    # NOTA: destaque NÃO é db.Column — será adicionado via migração manual
+    # Quando a coluna existir no banco, DESTAQUE_COLUMN_EXISTS será True
+    # e o código usará raw SQL para acessar o campo
     ativo = db.Column(db.Boolean, default=True)
     data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
     data_atualizacao = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     def to_dict(self):
-        # Acesso seguro ao destaque (pode não existir no banco ainda)
-        try:
-            destaque_val = self.destaque or False
-        except Exception:
-            destaque_val = False
         return {
             'id': self.id,
             'nome': self.nome,
@@ -43,7 +42,7 @@ class Produto(db.Model):
             'cores': self.cores,
             'link_whatsapp': self.link_whatsapp,
             'url_original': self.url_original,
-            'destaque': destaque_val,
+            'destaque': getattr(self, '_destaque_val', False),
             'ativo': self.ativo,
             'data_criacao': self.data_criacao.isoformat() if self.data_criacao else None,
             'data_atualizacao': self.data_atualizacao.isoformat() if self.data_atualizacao else None
