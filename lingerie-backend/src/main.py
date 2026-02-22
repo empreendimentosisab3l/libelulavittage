@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
+from sqlalchemy import event
 from src.models.produto import db
 from src.routes.produtos import produtos_bp
 from src.routes.scraper import scraper_bp
@@ -35,53 +36,65 @@ else:
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Pool recycling para evitar conexões mortas com PostgreSQL (psycopg2 OperationalError)
+# Pool settings for Render free tier (512MB RAM)
 engine_options = {
-    'pool_recycle': 280,      # Reciclar conexões a cada ~5 min (antes do timeout do Render)
-    'pool_pre_ping': True,    # Verificar se a conexão está viva antes de usar
-    'pool_size': 2,           # Pool pequeno para free tier (512MB)
-    'max_overflow': 3         # Máximo de 5 conexões totais
+    'pool_recycle': 280,
+    'pool_pre_ping': True,
+    'pool_size': 2,
+    'max_overflow': 3
 }
 
 # Fix: Render PostgreSQL has a very short statement_timeout that kills queries
-# Set options=-c statement_timeout=30000 (30s) via connect_args for psycopg2
+# Also set connect_timeout to avoid hanging on connection establishment
 if database_url:
     engine_options['connect_args'] = {
-        'options': '-c statement_timeout=30000'
+        'connect_timeout': 10,
+        'options': '-c statement_timeout=60000 -c idle_in_transaction_session_timeout=30000'
     }
 
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = engine_options
 
 db.init_app(app)
+
+# Event listener: SET statement_timeout on every new connection (belt + suspenders)
+if database_url:
+    @event.listens_for(db.engine, 'connect')
+    def set_statement_timeout(dbapi_conn, connection_record):
+        cursor = dbapi_conn.cursor()
+        cursor.execute("SET statement_timeout = '60000'")
+        cursor.execute("SET idle_in_transaction_session_timeout = '30000'")
+        cursor.close()
+
 with app.app_context():
     db.create_all()
-    # Dispose connections created during startup to avoid forked-connection issues with gunicorn
-    # Each gunicorn worker will create fresh connections on first request
     db.session.remove()
     db.engine.dispose()
-    print("[STARTUP] Banco inicializado com sucesso. Pool disposed for clean worker start.")
+    print("[STARTUP] Banco inicializado com sucesso.")
 
 @app.route('/api/health')
 def health():
     """Debug endpoint to test DB connection"""
     import traceback
+    import time
+    start = time.time()
     try:
         result = db.session.execute(db.text('SELECT 1'))
         row = result.fetchone()
-        # Also test the produtos table
+        t1 = time.time() - start
         count = db.session.execute(db.text('SELECT COUNT(*) FROM produtos')).fetchone()
-        # Test destaque column
+        t2 = time.time() - start
         destaque_count = db.session.execute(db.text('SELECT COUNT(*) FROM produtos WHERE destaque = true')).fetchone()
+        t3 = time.time() - start
         return jsonify({
             'status': 'ok',
             'db_test': row[0] if row else None,
             'total_produtos': count[0] if count else 0,
             'destaque_count': destaque_count[0] if destaque_count else 0,
-            'database_url': 'postgresql' if 'postgresql' in (app.config.get('SQLALCHEMY_DATABASE_URI') or '') else 'sqlite'
+            'timings': {'select1': f'{t1:.2f}s', 'count': f'{t2:.2f}s', 'destaque': f'{t3:.2f}s'}
         })
     except Exception as e:
         traceback.print_exc()
-        return jsonify({'status': 'error', 'erro': str(e)}), 500
+        return jsonify({'status': 'error', 'erro': str(e), 'elapsed': f'{time.time()-start:.2f}s'}), 500
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -102,4 +115,3 @@ def serve(path):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
-
