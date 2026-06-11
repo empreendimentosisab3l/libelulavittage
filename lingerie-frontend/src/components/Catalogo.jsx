@@ -4,10 +4,11 @@ import { ShoppingCart, Filter, X } from 'lucide-react'
 import { Button } from './ui/button'
 import AddToCartModal from './AddToCartModal'
 import ProductSkeleton from './ProductSkeleton'
+import { listarProdutos } from '../lib/produtos'
 
 const PER_PAGE = 24
 
-const Catalogo = ({ categorias, apiBaseUrl }) => {
+const Catalogo = ({ categorias }) => {
   const [searchParams] = useSearchParams()
   const [produtos, setProdutos] = useState([])
   const [loading, setLoading] = useState(true)
@@ -38,14 +39,12 @@ const Catalogo = ({ categorias, apiBaseUrl }) => {
         setLoadingMore(true)
       }
 
-      const params = new URLSearchParams()
-      params.append('page', page.toString())
-      params.append('per_page', PER_PAGE.toString())
-      if (filtros.categoria) params.append('categoria', filtros.categoria)
-      if (filtros.busca) params.append('busca', filtros.busca)
-
-      const response = await fetch(`${apiBaseUrl}/produtos?${params}`)
-      const data = await response.json()
+      const data = await listarProdutos({
+        page,
+        perPage: PER_PAGE,
+        categoria: filtros.categoria || undefined,
+        busca: filtros.busca || undefined
+      })
 
       const novosProdutos = data.produtos || []
 

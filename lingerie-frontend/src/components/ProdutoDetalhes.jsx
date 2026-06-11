@@ -3,8 +3,9 @@ import { useParams, Link } from 'react-router-dom'
 import { ShoppingCart, ArrowLeft, ChevronLeft, ChevronRight, Plus, Minus } from 'lucide-react'
 import { Button } from './ui/button'
 import { useCart } from '../context/CartContext'
+import { obterProduto } from '../lib/produtos'
 
-const ProdutoDetalhes = ({ apiBaseUrl }) => {
+const ProdutoDetalhes = () => {
   const { id } = useParams()
   const { addToCart } = useCart()
   const [produto, setProduto] = useState(null)
@@ -21,8 +22,7 @@ const ProdutoDetalhes = ({ apiBaseUrl }) => {
   const carregarProduto = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`${apiBaseUrl}/produtos/${id}`)
-      const data = await response.json()
+      const data = await obterProduto(id)
       setProduto(data)
       setSelectedVariacoes({})
     } catch (error) {

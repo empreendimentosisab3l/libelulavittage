@@ -8,7 +8,7 @@ import ProdutoDetalhes from './components/ProdutoDetalhes'
 import AdminPanel from './components/AdminPanel'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
-import { startKeepAlive, stopKeepAlive } from './utils/keepAlive'
+import { listarProdutos, listarCategorias } from './lib/produtos'
 import './App.css'
 
 function App() {
@@ -17,38 +17,19 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [isCartOpen, setIsCartOpen] = useState(false)
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api'
-
   useEffect(() => {
     carregarDados()
-
-    // Start keep-alive service to prevent backend from sleeping
-    startKeepAlive()
-
-    // Cleanup on unmount
-    return () => {
-      stopKeepAlive()
-    }
   }, [])
 
   const carregarDados = async () => {
     try {
       setLoading(true)
-
-      // Carregar produtos e categorias em paralelo
-      const [produtosResponse, categoriasResponse] = await Promise.all([
-        fetch(`${API_BASE_URL}/produtos?per_page=8`),
-        fetch(`${API_BASE_URL}/categorias`)
+      const [produtosResult, categoriasResult] = await Promise.all([
+        listarProdutos({ page: 1, perPage: 8 }),
+        listarCategorias()
       ])
-
-      const [produtosData, categoriasData] = await Promise.all([
-        produtosResponse.json(),
-        categoriasResponse.json()
-      ])
-
-      setProdutos(produtosData.produtos || [])
-      setCategorias(categoriasData.categorias || [])
-
+      setProdutos(produtosResult.produtos)
+      setCategorias(categoriasResult)
     } catch (error) {
       console.error('Erro ao carregar dados:', error)
     } finally {
@@ -70,10 +51,7 @@ function App() {
               element={
                 <>
                   <Header categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />
-                  <Catalogo
-                    categorias={categorias}
-                    apiBaseUrl={API_BASE_URL}
-                  />
+                  <Catalogo categorias={categorias} />
                   <Footer />
                 </>
               }
@@ -83,7 +61,7 @@ function App() {
               element={
                 <>
                   <Header categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />
-                  <ProdutoDetalhes apiBaseUrl={API_BASE_URL} />
+                  <ProdutoDetalhes />
                   <Footer />
                 </>
               }
@@ -93,14 +71,13 @@ function App() {
               element={
                 <>
                   <Header categorias={categorias} onOpenCart={() => setIsCartOpen(true)} />
-                  <AdminPanel apiBaseUrl={API_BASE_URL} />
+                  <AdminPanel />
                   <Footer />
                 </>
               }
             />
           </Routes>
 
-          {/* Global Cart - renders at app level outside all stacking contexts */}
           <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
         </div>
       </Router>
@@ -109,4 +86,3 @@ function App() {
 }
 
 export default App
-
