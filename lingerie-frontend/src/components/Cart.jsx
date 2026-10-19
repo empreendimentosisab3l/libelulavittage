@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { X, Plus, Minus, ShoppingCart, Trash2, MessageCircle } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import { getConfig, normalizeWhatsappNumber } from '../lib/produtos'
 
 const Cart = ({ isOpen, onClose }) => {
   const { cartItems, updateQuantity, removeFromCart, clearCart, getCartTotal } = useCart()
-  const [whatsappNumber, setWhatsappNumber] = useState('43996048712')
+  const [whatsappNumber, setWhatsappNumber] = useState(normalizeWhatsappNumber('43996048712'))
+
+  useEffect(() => {
+    getConfig().then(config => setWhatsappNumber(normalizeWhatsappNumber(config.numero_whatsapp)))
+  }, [])
 
   if (!isOpen) return null
 

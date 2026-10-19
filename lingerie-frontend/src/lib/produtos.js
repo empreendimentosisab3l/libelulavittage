@@ -33,9 +33,14 @@ export async function getConfig() {
   return configCachePromise
 }
 
-function normalizeWhatsappNumber(num) {
+export function normalizeWhatsappNumber(num) {
   const digits = String(num || '').replace(/\D/g, '')
   return digits.startsWith('55') ? digits : `55${digits}`
+}
+
+export function formatarWhatsapp(num) {
+  const d = normalizeWhatsappNumber(num).slice(2)
+  return d.length === 11 ? `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}` : d
 }
 
 function gerarLinkWhatsapp(produto, config) {
