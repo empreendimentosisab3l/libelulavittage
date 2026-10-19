@@ -12,6 +12,12 @@ Variaveis de ambiente:
 
 `incremental` e `full` rodam a mesma estrategia (sitemap completo); a diferenca e que
 `full` ignora o hash e regrava tudo (use para forcar reset apos mudanca de schema).
+
+O sitemap da Caliente mantem produtos esgotados/desativados. Para esses a API nao devolve
+JSON, e sim um <script> que redireciona para o catalogo com `?e=1`. Eles contam como
+`indisponiveis` (nao como erro) e, no fim do sync, todo produto ativo no banco que nao
+voltou disponivel e marcado ativo=false (nunca apagado). Ao voltar ao estoque, o upsert
+reativa. Produtos com erro real ficam como estao.
 """
 
 from __future__ import annotations
@@ -62,11 +68,11 @@ def load_config(conn) -> dict:
 
 
 def load_existing_index(conn) -> dict:
-    """{url_original (str) -> {'id', 'data_hash'}}"""
+    """{url_original (str) -> {'id', 'data_hash', 'ativo'}}"""
     with conn.cursor() as cur:
-        cur.execute("SELECT id, url_original, data_hash FROM produtos")
+        cur.execute("SELECT id, url_original, data_hash, ativo FROM produtos")
         return {
-            str(row[1]): {"id": row[0], "data_hash": row[2]}
+            str(row[1]): {"id": row[0], "data_hash": row[2], "ativo": row[3]}
             for row in cur.fetchall()
             if row[1]
         }
@@ -95,14 +101,29 @@ def fetch_sitemap_ids() -> list[str]:
     return sorted(set(re.findall(r"/produto/(\d+)", resp.text)))
 
 
-def fetch_product(pid: str) -> dict | None:
+def fetch_product(pid: str) -> tuple[str, dict | str]:
+    """Retorna (status, payload):
+    ('ok', item) | ('indisponivel', motivo) | ('erro', motivo)."""
     try:
         r = requests.get(PRODUCT_URL.format(pid=pid), headers=HEADERS, timeout=REQUEST_TIMEOUT)
-        if r.status_code != 200:
-            return None
-        return r.json()
-    except Exception:
-        return None
+    except Exception as exc:
+        return "erro", f"{type(exc).__name__}: {exc}"
+    if r.status_code != 200:
+        return "erro", f"HTTP {r.status_code}"
+    try:
+        item = r.json()
+    except ValueError:
+        if "window.location.href" in r.text and "?e=1" in r.text:
+            return "indisponivel", "redirect ?e=1"
+        return "erro", f"resposta nao-JSON: {r.text[:120]!r}"
+    if not isinstance(item, dict):
+        return "erro", f"JSON inesperado: {type(item).__name__}"
+    try:
+        if str(item.get("controlar_estoque")) == "1" and int(item.get("total_estoque") or 0) <= 0:
+            return "indisponivel", "sem estoque"
+    except (TypeError, ValueError):
+        pass
+    return "ok", item
 
 
 def parse_product(pid: str, item: dict) -> dict | None:
@@ -233,6 +254,44 @@ INSERT INTO produtos (
 """
 
 
+# Travas: se o dia estiver ruim na Caliente (bloqueio, fora do ar), nao esvazia o catalogo.
+MAX_ERROS_PCT = 10      # mais que isso de erros reais no sitemap -> nao desativa nada
+MIN_DISPONIVEIS_PCT = 30  # menos que isso dos ativos atuais voltou disponivel -> nao desativa
+
+
+def desativar_fora_do_ar(conn, manter_ativos: set[str], stats: dict, total: int) -> int:
+    """Marca ativo=false nos produtos da Caliente que sairam do sitemap ou estao
+    indisponiveis. Nunca apaga. Retorna quantos foram desativados."""
+    with conn.cursor() as cur:
+        cur.execute("SELECT count(*) FROM produtos WHERE ativo = TRUE")
+        ativos_atuais = cur.fetchone()[0]
+
+    disponiveis = stats["criados"] + stats["atualizados"] + stats["sem_mudanca"]
+    if total and stats["erros"] * 100 / total > MAX_ERROS_PCT:
+        print(f"[sync] AVISO: {stats['erros']}/{total} erros reais (> {MAX_ERROS_PCT}%), "
+              f"desativacao pulada")
+        return 0
+    if ativos_atuais and disponiveis * 100 / ativos_atuais < MIN_DISPONIVEIS_PCT:
+        print(f"[sync] AVISO: so {disponiveis} disponiveis para {ativos_atuais} ativos "
+              f"(< {MIN_DISPONIVEIS_PCT}%), desativacao pulada")
+        return 0
+
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            UPDATE produtos SET ativo = FALSE, data_atualizacao = %s
+            WHERE ativo = TRUE
+              AND url_original ~ '^[0-9]+$'
+              AND NOT (url_original = ANY(%s))
+            """,
+            (datetime.now(timezone.utc), list(manter_ativos)),
+        )
+        n = cur.rowcount
+    conn.commit()
+    print(f"[sync] desativados (fora do sitemap ou indisponiveis): {n}")
+    return n
+
+
 def sync(database_url: str, modo: str = "incremental") -> dict:
     print(f"[sync] modo={modo}")
     started = time.time()
@@ -252,8 +311,10 @@ def sync(database_url: str, modo: str = "incremental") -> dict:
         existing = load_existing_index(conn)
         print(f"[sync] existentes no banco: {len(existing)}")
 
-        stats = {"processados": 0, "criados": 0, "atualizados": 0,
-                 "sem_mudanca": 0, "erros": 0, "puladas": 0}
+        stats = {"processados": 0, "criados": 0, "atualizados": 0, "sem_mudanca": 0,
+                 "indisponiveis": 0, "erros": 0, "puladas": 0, "desativados": 0}
+        # IDs cujo estado e conhecido como "no ar" ou incerto: nao serao desativados.
+        manter_ativos: set[str] = set()
 
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
             futures = {pool.submit(fetch_product, pid): pid for pid in ids}
@@ -266,16 +327,22 @@ def sync(database_url: str, modo: str = "incremental") -> dict:
                     if stats["processados"] % 50 == 0:
                         print(f"[sync] {stats['processados']}/{total} "
                               f"(criados={stats['criados']} atualizados={stats['atualizados']} "
-                              f"unchanged={stats['sem_mudanca']} erros={stats['erros']})")
-                        conn.commit()
+                              f"unchanged={stats['sem_mudanca']} "
+                              f"indisponiveis={stats['indisponiveis']} erros={stats['erros']})")
 
+                    status, payload = fut.result()
+                    if status == "indisponivel":
+                        stats["indisponiveis"] += 1
+                        continue
+                    if status == "erro":
+                        stats["erros"] += 1
+                        manter_ativos.add(pid)
+                        print(f"[sync] erro em {pid}: {payload}", file=sys.stderr)
+                        continue
+
+                    manter_ativos.add(pid)
                     try:
-                        item = fut.result()
-                        if not item:
-                            stats["erros"] += 1
-                            continue
-
-                        parsed = parse_product(pid, item)
+                        parsed = parse_product(pid, payload)
                         if not parsed:
                             stats["puladas"] += 1
                             continue
@@ -287,7 +354,9 @@ def sync(database_url: str, modo: str = "incremental") -> dict:
                         )
 
                         prev = existing.get(parsed["url_original"])
-                        if modo != "full" and prev and prev["data_hash"] == new_hash:
+                        # inativo que voltou ao estoque precisa do UPDATE para reativar
+                        if (modo != "full" and prev and prev["ativo"]
+                                and prev["data_hash"] == new_hash):
                             stats["sem_mudanca"] += 1
                             continue
 
@@ -315,13 +384,17 @@ def sync(database_url: str, modo: str = "incremental") -> dict:
                         else:
                             cur.execute(INSERT_SQL, params)
                             stats["criados"] += 1
+                        # commit por produto: uma falha nao desfaz os anteriores
+                        conn.commit()
 
                     except Exception as exc:
                         stats["erros"] += 1
                         conn.rollback()
-                        print(f"[sync] erro em {pid}: {exc}", file=sys.stderr)
+                        print(f"[sync] erro ao gravar {pid}: {exc}", file=sys.stderr)
 
         conn.commit()
+
+        stats["desativados"] = desativar_fora_do_ar(conn, manter_ativos, stats, total)
 
         # Log final
         with conn.cursor() as cur:
@@ -361,7 +434,8 @@ def main():
         sys.exit(2)
 
     stats = sync(database_url, modo=args.modo)
-    if stats["erros"] > 0 and (stats["criados"] + stats["atualizados"]) == 0:
+    disponiveis = stats["criados"] + stats["atualizados"] + stats["sem_mudanca"]
+    if stats["erros"] > 0 and disponiveis == 0:
         sys.exit(1)
 
 

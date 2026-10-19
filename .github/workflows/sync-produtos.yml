@@ -19,6 +19,11 @@ concurrency:
   group: sync-produtos
   cancel-in-progress: false
 
+# actions: write e para o passo de keepalive reabilitar o proprio workflow.
+permissions:
+  contents: read
+  actions: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -40,3 +45,12 @@ jobs:
           DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
           MODO: ${{ inputs.modo || 'incremental' }}
         run: python scraper/sync_produtos.py
+
+      # O GitHub desliga crons de repo publico apos 60 dias sem commit (aconteceu
+      # de 11/08 a 19/10/2026). Reabilitar o workflow pela API zera esse prazo,
+      # sem commit vazio (mesma tecnica do gautamkrishnar/keepalive-workflow v2).
+      - name: Keepalive do cron
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/sync-produtos.yml/enable"
