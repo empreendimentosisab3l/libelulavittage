@@ -1,0 +1,434 @@
+[
+  {
+    "id": 4930,
+    "nome": "Conjunto Mariana (Marfim)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1792688069_89dacfbc7586bfe31e04.webp,https://arquivos.facilzap.app.br/produtos/1792688065_50808f43e465e54d25a7.webp",
+    "tamanhos": "EG (48), G, GG, M, P",
+    "cores": "Marfim",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4929,
+    "nome": "Conjunto Mariana (Alecrim)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ada403d4ff7d_ZKnMBpef.webp,https://arquivos.facilzap.app.br/produtos/6ada403f84821_5a4tMS21.webp",
+    "tamanhos": "P",
+    "cores": "Alecrim",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4928,
+    "nome": "Conjunto Mariana (Azul Marinho)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ada40258cb53_fiw79PFD.webp,https://arquivos.facilzap.app.br/produtos/6ada4027d4369_MVUfvR7l.webp",
+    "tamanhos": "EG (48), G, GG, M, P",
+    "cores": "Azul Marinho",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4927,
+    "nome": "Conjunto Mariana (Romance)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ada3df2893f4_SGUDEPb4.webp,https://arquivos.facilzap.app.br/produtos/6ada3df4582d7_4xXYvBKg.webp",
+    "tamanhos": "EG (48), G, GG, M, P",
+    "cores": "Romance",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4926,
+    "nome": "Conjunto Mariana (Vermelho)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ada3de102cf2_7rFIRAnU.webp,https://arquivos.facilzap.app.br/produtos/6ada3de3793dc_X3LVUoxT.webp",
+    "tamanhos": "EG (48), G, GG, M, P",
+    "cores": "Vermelho",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4925,
+    "nome": "Conjunto Mariana (Preto)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ada3d4ccabe8_n8wX0dgs.webp,https://arquivos.facilzap.app.br/produtos/6ada3d4f166e3_h27qkVpb.webp",
+    "tamanhos": "EG (48), G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4924,
+    "nome": "Conjunto Paula (Pink)",
+    "preco_venda": 75.645,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/68adbd14bb53e_2srH8BMR.webp,https://arquivos.facilzap.app.br/produtos/68adbd171c436_1ig6QYWx.webp",
+    "tamanhos": "GG",
+    "cores": "Pink",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4923,
+    "nome": "Conjunto Faby (Pink)",
+    "preco_venda": 87.945,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1744832216_0ddff3027fc113767787.jpeg.webp,https://arquivos.facilzap.app.br/produtos/1744831328_26bb36dc2175aa7c4b65.jpeg.webp",
+    "tamanhos": "GG",
+    "cores": "Pink",
+    "categoria": "Lingerie"
+  },
+  {
+    "id": 4922,
+    "nome": "Baby Doll Alice (Acalanto com Pink)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1792579613_fb7e17a6e3d42b6f999f.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Acalanto com Pink",
+    "categoria": "Baby doll"
+  },
+  {
+    "id": 4921,
+    "nome": "Baby Doll Alice (Amarelo)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1792579387_33375ed01467a1721768.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Amarelo",
+    "categoria": "Baby doll"
+  },
+  {
+    "id": 4920,
+    "nome": "Baby Doll Alice (Branco)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1792579416_4a0dce59817c1c3dc28a.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Branco",
+    "categoria": "Baby doll"
+  },
+  {
+    "id": 4919,
+    "nome": "Baby Doll Alice (Preto)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ad7b57b27fb1_a3dWvwYP.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Baby doll"
+  },
+  {
+    "id": 4918,
+    "nome": "Conjunto Melissa (Capuccino)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791997871_5778183de41209764ae5.webp,https://arquivos.facilzap.app.br/produtos/1791997875_e448a9d0472625f34ff0.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Capuccino",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4917,
+    "nome": "Conjunto Melissa (Preto)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791997648_22a6e502f668916a24d4.webp,https://arquivos.facilzap.app.br/produtos/1791997652_0808288e957998c3b003.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4916,
+    "nome": "Conjunto Stefany (Pink)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791983460_bf09eb29636f050d6520.webp,https://arquivos.facilzap.app.br/produtos/1791983457_6cd6be5dac436b2ca43e.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Pink",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4915,
+    "nome": "Conjunto Melissa (Vermelho)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791997559_659b074041a181794455.webp,https://arquivos.facilzap.app.br/produtos/1791997564_26be3cc820bcb479e309.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Vermelho",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4914,
+    "nome": "Conjunto Melissa (Verde Floresta)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791997473_61cd0a5c9ec8e13cfbf8.webp,https://arquivos.facilzap.app.br/produtos/1791997633_88b31ad4ea03b70f4861.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Verde Floresta",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4913,
+    "nome": "Conjunto Renata (Capuccino)",
+    "preco_venda": 67.445,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791315183_fd42033f195e0f8b21a6.webp,https://arquivos.facilzap.app.br/produtos/1791315176_4dd62d4fc9ebc7a0c788.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Capuccino",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4912,
+    "nome": "Conjunto Stefany (Vermelho)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791983291_2e69e8a9acc04e366c7e.webp,https://arquivos.facilzap.app.br/produtos/1791983401_2203eca5eeb329d9dfd2.webp,https://arquivos.facilzap.app.br/produtos/1791983397_c696e50ed88dddbb422a.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Vermelho",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4911,
+    "nome": "Conjunto Melissa (Marsala)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791997758_de1eaff2d51cc4f4d737.webp,https://arquivos.facilzap.app.br/produtos/1791997762_2f1b90e8e3ba1ec42f15.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Marsala",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4910,
+    "nome": "[7230] Cueca Boxer Torp Infantil",
+    "preco_venda": 32.595,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791981412_82210cc95959d32af067.webp",
+    "tamanhos": "",
+    "cores": "Azul Marinho - Tamanho EG, Azul Marinho Tamanho G, Azul Marinho Tamanho M, Chumbo - Tamanho EG, Chumbo - Tamanho G, Chumbo - Tamanho M, Mesclado -Tamanho G, Mesclado -Tamanho M, Preto - Tamanho EG, Preto - Tamanho G, Preto - Tamanho M",
+    "categoria": "Cueca Boxer"
+  },
+  {
+    "id": 4909,
+    "nome": "Conjunto Stefany (Capuccino)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791983388_6f7609d5c75afb873580.webp,https://arquivos.facilzap.app.br/produtos/1791983721_df8306931ac3c8b3fed0.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Capuccino",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4908,
+    "nome": "Conjunto Stefany (Romance)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791983448_e622d00049caa3055c2b.webp,https://arquivos.facilzap.app.br/produtos/1791983444_d35f6c1ac3a9ef29335c.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Romance",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4907,
+    "nome": "Conjunto Stefany (Preto)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791983534_2e77a7a9c5a806a4dfda.webp,https://arquivos.facilzap.app.br/produtos/1791983529_b6fdea7f268d525e2cc7.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4906,
+    "nome": "[8201] Cueca Boxer Torp Infantil",
+    "preco_venda": 32.595,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791484105_aae8364f4ebbfc628c51.webp,https://arquivos.facilzap.app.br/produtos/1791484103_df3d86b1b36d6d535164.webp",
+    "tamanhos": "",
+    "cores": "Preto Tamanho P",
+    "categoria": "Cueca Boxer"
+  },
+  {
+    "id": 4905,
+    "nome": "[7214] Cueca Boxer Torp Infantil - Lisa",
+    "preco_venda": 32.595,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791981578_c8c5825ce8e2dd50d13b.webp,https://arquivos.facilzap.app.br/produtos/1791981574_23ac34dd97614ad43bdc.webp",
+    "tamanhos": "",
+    "cores": "Azul Marinho - Tamanho EG, Azul Marinho Cós vermelho - Tamanho EG, Branco Tamanho EG, Mesclado -Tamanho G, Mesclado -Tamanho M, Preto - Tamanho EG, Preto - Tamanho G, Preto cós vermelho - Tamanho EG",
+    "categoria": "Cueca Boxer"
+  },
+  {
+    "id": 4904,
+    "nome": "[7214] Cueca Boxer Torp Infantil - Listrada",
+    "preco_venda": 32.595,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791981640_26c5147d03dd66baff94.webp",
+    "tamanhos": "",
+    "cores": "Azul Marinho - Tamanho EG, Azul Marinho Tamanho G, Azul Marinho Tamanho M, Azul Marinho Tamanho P, Azul Marinho-Tamanho PP, Branco - Tamanho EG, Branco - Tamanho G, Branco - Tamanho M, Branco - Tamanho P, Branco - Tamanho PP",
+    "categoria": "Cueca Boxer"
+  },
+  {
+    "id": 4902,
+    "nome": "Conjunto Renata (Odalisca)",
+    "preco_venda": 67.445,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791382477_9a2ae3ff366b0c171c59.webp,https://arquivos.facilzap.app.br/produtos/1791382336_53bf400fa65443f974c7.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Odalisca",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4901,
+    "nome": "Conjunto Renata (Branco)",
+    "preco_venda": 67.445,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ac54e13d7f6a_tdnQfECh.webp,https://arquivos.facilzap.app.br/produtos/6ac54e163a7f0_WS6BfsAj.webp",
+    "tamanhos": "GG",
+    "cores": "Branco",
+    "categoria": "Lingerie"
+  },
+  {
+    "id": 4900,
+    "nome": "Conjunto Renata (Preto)",
+    "preco_venda": 67.445,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ac54adf1df50_u1TMXJ2r.webp,https://arquivos.facilzap.app.br/produtos/6ac54ae14309f_4cLrYvMC.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Lingerie"
+  },
+  {
+    "id": 4899,
+    "nome": "Conjunto Renata (Romance)",
+    "preco_venda": 67.445,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ac54aa6d5d48_40FSboDa.webp,https://arquivos.facilzap.app.br/produtos/6ac54aa8e5309_9hrHtOdF.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Romance",
+    "categoria": "Lingerie"
+  },
+  {
+    "id": 4898,
+    "nome": "Conjunto Karen (Preto)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791305033_6acb8c2f0262af63c27a.webp,https://arquivos.facilzap.app.br/produtos/1791305479_6bb3526d8ab00258f505.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4897,
+    "nome": "Kit Super Luxo Amamentação (Azul místico)",
+    "preco_venda": 225.5,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790864371_6bd2e937996751a8c4d5.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Azul místico",
+    "categoria": "Amamentação"
+  },
+  {
+    "id": 4896,
+    "nome": "Conjunto Renata (Vermelho)",
+    "preco_venda": 67.445,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6ac54a821b07b_01ohDusj.webp,https://arquivos.facilzap.app.br/produtos/6ac54a843be91_OpUHRZBb.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Vermelho",
+    "categoria": "Lingerie"
+  },
+  {
+    "id": 4895,
+    "nome": "Conjunto Karen (Azul Marinho)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791305145_d6c8b8a7f28b76e44547.webp,https://arquivos.facilzap.app.br/produtos/1791305334_0cebb5107909330d8aef.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Azul Marinho",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4894,
+    "nome": "Kit Super Luxo Amamentação (Romance)",
+    "preco_venda": 225.5,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791199280_fd1d4896ba00b7221c23.webp,https://arquivos.facilzap.app.br/produtos/1791199283_3d2e2f42d76467a2896a.webp,https://arquivos.facilzap.app.br/produtos/1790864534_71cafebd5e57d99ef012.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Romance",
+    "categoria": "Amamentação"
+  },
+  {
+    "id": 4893,
+    "nome": "Conjunto Karen (Capuccino)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791305140_d41a80d03b5ef30123b7.webp,https://arquivos.facilzap.app.br/produtos/1791305446_ac60f511fac7352bf884.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Capuccino",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4892,
+    "nome": "Conjunto Karen (Pink)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791305132_3ff409fb7d246ee0dc23.webp,https://arquivos.facilzap.app.br/produtos/1791305285_01a4aa905158f1e442ef.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Pink",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4891,
+    "nome": "Conjunto Karen (Vermelho)",
+    "preco_venda": 86.1,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1791305136_d788e51baa2b8a8b659e.webp,https://arquivos.facilzap.app.br/produtos/1791305296_1b13aad7219dcf58ad8b.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Vermelho",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4890,
+    "nome": "Kit Super Luxo Amamentação (Acalanto)",
+    "preco_venda": 225.5,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790864503_12c72cb48d589c1c931a.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Acalanto",
+    "categoria": "Amamentação"
+  },
+  {
+    "id": 4889,
+    "nome": "Kit Super Luxo Amamentação (Preto)",
+    "preco_venda": 225.5,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790864548_0991c41c190b963e1b3a.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Amamentação"
+  },
+  {
+    "id": 4888,
+    "nome": "Conjunto Maitê (Acalanto)",
+    "preco_venda": 87.945,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790702045_405cf7884a35308c1619.webp,https://arquivos.facilzap.app.br/produtos/1790702040_6a16bb74e16371167631.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Acalanto",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4887,
+    "nome": "Conjunto Maitê (Odalisca)",
+    "preco_venda": 87.945,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790701920_f7c5e6b9e2660231f2c6.webp,https://arquivos.facilzap.app.br/produtos/1790701916_751fbb3eccd59e9fe9dd.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Odalisca",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4886,
+    "nome": "Kit Super Luxo Amamentação (Pink)",
+    "preco_venda": 225.5,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790864571_49992a52cf75e17130aa.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Pink",
+    "categoria": "Amamentação"
+  },
+  {
+    "id": 4885,
+    "nome": "Conjunto Maitê (Vermelho)",
+    "preco_venda": 87.945,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790701897_1d854ee2c819ff040e59.webp,https://arquivos.facilzap.app.br/produtos/1790701892_175dc9bd7eaf9c7d9900.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Vermelho",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4884,
+    "nome": "Conjunto Maitê (Romance)",
+    "preco_venda": 87.945,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790701992_6b3f00e08cc5405a5ec7.webp,https://arquivos.facilzap.app.br/produtos/1790701988_e8adc993e2329ce41b52.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Romance",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4882,
+    "nome": "Conjunto Maitê (Preto)",
+    "preco_venda": 87.945,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/1790701959_18828f3ca26b95f650fb.webp,https://arquivos.facilzap.app.br/produtos/1790701955_8868e6efff5c1d707b95.webp",
+    "tamanhos": "G, GG, M, P",
+    "cores": "Preto",
+    "categoria": "Conjuntos"
+  },
+  {
+    "id": 4881,
+    "nome": "Pijama de Suede Fernanda (Marinho)",
+    "preco_venda": 81.795,
+    "imagens": "https://arquivos.facilzap.app.br/produtos/6abbb3aa0552c_oDyj2P4h.webp",
+    "tamanhos": "P",
+    "cores": "Marinho",
+    "categoria": "Baby doll"
+  }
+]
